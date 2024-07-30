@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    padding-left: 40px;
+    padding-left: 80px;
 }
 .search-header h1{
     font-family: "Inter";
@@ -24,8 +24,8 @@
     height: 120px;
     justify-content: space-between;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
     border-bottom: 4px solid rgba(241, 231, 214, 1);
 }
 .search-info input{
