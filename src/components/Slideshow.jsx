@@ -9,16 +9,15 @@ const Slideshow = () => {
   const images = [slide1, slide2, slide3, slide4];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Automatic slide transition with a longer duration
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 8000); // Change slides every 8 seconds
+    }, 8000);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, [images.length]);
 
-  // Update slide based on index
   const setSlide = (index) => {
     setCurrentIndex(index);
   };
