@@ -41,14 +41,19 @@
     padding-bottom: 32px;
     font-size: 12pt;
 }
-a:link{
+
+a:link, a:visited {
     text-decoration: none;
     color: rgba(158, 126, 79, 1);
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-a:hover{
-    font-weight: 800;
-    transform: translateY(-4px);
+
+a:hover {
+    color: rgb(129, 206, 206) !important;
+    transform: translateY(-2px);
 }
+
+
 a:visited{
     text-decoration: none;
     color: rgba(158, 126, 79, 1);
