@@ -3,3 +3,64 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.slideshow-wrapper {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+  width: 70%;
+  height: 160px;
+  background-color: rgba(150, 135, 126, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.overlay p {
+  font-size: 3.5rem;
+  margin-bottom: 5px;
+}
+
+.overlay .button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.overlay button {
+  background-color: rgba(158, 126, 79, 1);
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  align-self: flex-start;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 40%;
+  margin-left: 45px;
+
+}
+
+.overlay button:hover {
+  background-color: rgba(138, 106, 64, 1);
+  transform: scale(1.05);
+}
+
+.overlay .additional-text {
+  font-size: 1.5rem;
+  font-family: 'Arial', sans-serif;
+  color: rgb(255, 255, 255);
+}
