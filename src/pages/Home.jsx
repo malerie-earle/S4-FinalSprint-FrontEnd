@@ -10,10 +10,13 @@ const Home = () => {
       <Slideshow />
       <div className="overlay">
       <p>I S L A N D&nbsp;&nbsp;&nbsp;S E R E N I T Y</p>
+      <div className="button-container">
+          <button>B O O K&nbsp;&nbsp;&nbsp;N O W</button>
+          <p className="additional-text">Your greatest escape awaits.</p>
+        </div>
 
         </div>
       <div className="homepage-content">
-        <h1>This is a homepage.</h1>
       </div>
     </div>
   );

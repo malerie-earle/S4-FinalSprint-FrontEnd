@@ -1,3 +1,4 @@
+/* General reset and slideshow wrapper */
 * {
   margin: 0;
   padding: 0;
@@ -8,24 +9,65 @@
   position: relative;
 }
 
+/* Overlay styling */
 .overlay {
   position: absolute;
-  bottom: 15%;
-  left: 15%;
+  bottom: 15%; /* Position in the first third from the bottom */
+  left: 15%; /* Center horizontally (60% width) */
   width: 70%;
-  height: 130px;
-  background-color: rgba(150, 135, 126, 0.3);
+  height: 160px; /* Adjusted height */
+  background-color: rgba(150, 135, 126, 0.3); /* Light grey with transparency */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  padding: 0 20px;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center content */
+  color: rgb(255, 255, 255); /* Text color */
+  padding: 20px; /* Padding inside the rectangle */
   box-sizing: border-box;
-  text-align: center;
+  text-align: center; /* Center text */
 }
 
+/* Primary text styling */
 .overlay p {
-  font-size: 3.5rem;
-  margin-top: -50px;
+  font-size: 3.5rem; /* Font size for primary text */
+  margin-bottom: 5px; /* Reduced space between primary text and button-container */
+}
 
+/* Button container styling */
+.overlay .button-container {
+  display: flex;
+  flex-direction: row; /* Stack button and additional text vertically */
+  align-items: center; /* Center horizontally */
+  gap: 60px; /* Space between button and additional text */
+  width: 100%; /* Full width of the overlay */
+  margin-top: 0; /* Remove additional margin-top */
+}
+
+/* Button styling */
+.overlay button {
+  background-color: rgba(158, 126, 79, 1); /* Button background color */
+  border: none;
+  color: white; /* Button text color */
+  padding: 5px 15px; /* Button padding */
+  font-size: 0.85rem; /* Button font size */
+  border-radius: 30px; /* Rounded corners */
+  align-self: flex-start; /* Align button to the left */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  width: 40%; /* Full width of the button-container */
+  margin-left: 45px; /* Move button to the right */
+
+}
+
+/* Button hover state */
+.overlay button:hover {
+  background-color: rgba(138, 106, 64, 1); /* Darker button color on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Additional text styling */
+.overlay .additional-text {
+  font-size: 1.5rem; /* Font size for additional text */
+  font-family: 'Arial', sans-serif; /* Font family for additional text */
+  color: rgb(255, 255, 255); /* Text color */
 }
