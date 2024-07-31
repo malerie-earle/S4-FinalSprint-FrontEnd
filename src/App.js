@@ -9,13 +9,14 @@ function App() {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [guests, setGuests] = useState("");
+  const [activityDate, setActivityDate] = useState(null);
 
   return (
      <BrowserRouter>
        <Routes>
          <Route path="/" element={<Home />} />
          <Route path="room-availability" element={<RoomAvailability checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests}/>} />
-         <Route path="activity-availability" element={<ActivityAvailability/>}/>
+         <Route path="activity-availability" element={<ActivityAvailability activityDate={activityDate} setActivityDate={setActivityDate}/>}/>
        </Routes>
      </BrowserRouter>
   );
