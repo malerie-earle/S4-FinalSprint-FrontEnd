@@ -1,6 +1,7 @@
 import "../styles/availability.css"
 import { useState } from "react";
 import BookingDetails from "../components/BookingDetails";
+import Nav from "../components/Nav"
 
 const Availability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests}) => {
     
@@ -41,6 +42,8 @@ const Availability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDat
   
     return (
     <div>
+
+        <Nav/>
 
         <div className="search-header">
             <h1>YOUR STAY BEGINS HERE</h1>
