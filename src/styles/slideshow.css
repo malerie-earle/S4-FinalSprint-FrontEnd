@@ -1,9 +1,10 @@
 .slideshow-container {
     position: relative;
     max-width: 100%;
-    margin: auto;
+    margin: -45px auto;
+
     overflow: hidden;
-    height: 500px;
+    height: 525px;
   }
   
   .slide {
@@ -44,6 +45,6 @@
   }
   
   .dot.active, .dot:hover {
-    background-color: rgb(169, 213, 209);
+    background-color: rgb(129, 206, 206);
   }
   
