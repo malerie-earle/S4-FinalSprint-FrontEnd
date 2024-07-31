@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/index.css';
 import Home from '../src/pages/Home';
-import Availability from '../src/pages/Availability';
+import RoomAvailability from '../src/pages/RoomAvailability';
 import { useState } from 'react';
+import ActivityAvailability from './pages/ActivityAvailability';
 
 function App() {
   const [checkInDate, setCheckInDate] = useState(null);
@@ -13,7 +14,8 @@ function App() {
      <BrowserRouter>
        <Routes>
          <Route path="/" element={<Home />} />
-         <Route path="availability" element={<Availability checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests}/>} />
+         <Route path="room-availability" element={<RoomAvailability checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests}/>} />
+         <Route path="activity-availability" element={<ActivityAvailability/>}/>
        </Routes>
      </BrowserRouter>
   );

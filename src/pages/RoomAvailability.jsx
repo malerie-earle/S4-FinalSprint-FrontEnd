@@ -1,9 +1,9 @@
-import "../styles/availability.css"
+import "../styles/room-availability.css"
 import { useState } from "react";
-import BookingDetails from "../components/BookingDetails";
+import RoomBookingDetails from "../components/RoomBookingDetails";
 import Nav from "../components/Nav"
 
-const Availability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests}) => {
+const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests}) => {
     
     const [error, setError] = useState('');
 
@@ -85,12 +85,12 @@ const Availability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDat
 
         </form>
 
-        <BookingDetails/>
-        <BookingDetails/>
+        <RoomBookingDetails/>
+        <RoomBookingDetails/>
 
     </div>
 
   );
 };
 
-export default Availability;
+export default RoomAvailability;
