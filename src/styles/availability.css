@@ -29,7 +29,7 @@
     border-bottom: 4px solid rgba(241, 231, 214, 1);
 }
 .search-info input{
-    background-color: rgba(252, 238, 212, 1);
+    background-color: rgba(252, 238, 212, 0.572);
     border: none;
     color: rgba(158, 126, 79, 1);
     font-family: "Source Serif 4";
@@ -59,7 +59,7 @@
 }
 .search-info button{
     /* background-color: rgba(158, 126, 79, 1);; */
-    background-color: rgba(224, 178, 121, 1);
+    background-color: rgba(158, 126, 79, 1);
     border: none;
     padding: 18px;
     width: 200px;
