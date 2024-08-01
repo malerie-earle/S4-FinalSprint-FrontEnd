@@ -1,66 +1,108 @@
+/* Reset default margin, padding, and box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Slideshow wrapper to ensure proper positioning */
 .slideshow-wrapper {
   position: relative;
 }
 
+/* Styling for the overlay div */
 .overlay {
   position: absolute;
   bottom: 15%;
   left: 15%;
   width: 70%;
-  height: 160px;
-  background-color: rgba(150, 135, 126, 0.3);
+  max-width: 1000px; /* Max width for larger screens */
+  min-width: 300px; /* Min width for smaller screens */
+  background-color: rgba(150, 135, 126, 0.3); /* Light grey with transparency */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); /* Text color */
   padding: 20px;
   box-sizing: border-box;
-  text-align: center;
+  text-align: center; /* Center text */
 }
 
+/* Adjust text positioning within the overlay */
 .overlay p {
-  font-size: 3.5rem;
-  margin-bottom: 5px;
+  font-size: 3.5rem; /* Use rem units for responsive text */
+  margin-bottom: 0px; /* Space below text */
+  line-height: 1.2; /* Adjust line height for better readability */
+  width: 100%;
+  max-width: 100%; /* Ensure the text doesn't overflow */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
+/* Style for the button container */
 .overlay .button-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 60px;
+  flex-direction: row; /* Arrange button and additional text side by side */
+  align-items: center; /* Center items vertically */
+  gap: 20px; /* Space between button and additional text */
   width: 100%;
-  margin-top: 0;
+  justify-content: center; /* Center the content horizontally */
+  margin-top: 10px; /* Adjust margin to position container properly */
 }
 
+/* Style for the button */
 .overlay button {
-  background-color: rgba(158, 126, 79, 1);
+  margin-left: 115px;
+  margin-top: -15px;
+  background-color: rgb(42, 123, 119); /* Button background color */
   border: none;
-  color: white;
-  padding: 5px 15px;
-  font-size: 0.85rem;
-  border-radius: 30px;
-  align-self: flex-start;
+  color: white; /* Button text color */
+  padding: 8px 10px; /* Button padding */
+  font-size: 1rem; /* Fixed font size */
+  border-radius: 30px; /* Rounded corners */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 40%;
-  margin-left: 45px;
-
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  max-width: 330px; /* Maximum button width */
+  width: 100%; /* Full width of container or max-width */
+  box-sizing: border-box; /* Ensure padding is included in width */
 }
 
+/* Hover effect for the button */
 .overlay button:hover {
-  background-color: rgba(138, 106, 64, 1);
-  transform: scale(1.05);
+  background-color: rgb(8, 159, 149); /* Darker button color on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
 }
 
+/* Style for the additional text */
 .overlay .additional-text {
-  font-size: 1.5rem;
-  font-family: 'Arial', sans-serif;
-  color: rgb(255, 255, 255);
+  font-size: 1.55rem; /* Different font size for additional text */
+  font-family: 'Arial', sans-serif; /* Different font family */
+  color: rgb(255, 255, 255); /* Text color */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  margin-bottom: 15px;
+  margin-right: 95px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .overlay p {
+    font-size: 2rem; /* Smaller font size for smaller screens */
+  }
+
+  .overlay .button-container {
+    flex-direction: column; /* Stack button and additional text vertically */
+  }
+
+  .overlay button {
+    width: auto; /* Adjust button width */
+    min-width: 120px; /* Adjust minimum width for smaller screens */
+  }
+
+  .overlay .additional-text {
+    font-size: 1rem; /* Smaller font size for smaller screens */
+  }
 }
