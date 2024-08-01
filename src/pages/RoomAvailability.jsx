@@ -3,10 +3,9 @@ import { useState } from "react";
 import RoomBookingDetails from "../components/RoomBookingDetails";
 import Nav from "../components/Nav"
 
-const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests}) => {
-    
-    const [error, setError] = useState('');
+const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests, allRoomData, allRoomLoading, allRoomError}) => {
 
+    const [error, setError] = useState('');
 
     const handleCheckInChange = (event) => {
         setCheckInDate(event.target.value)
@@ -40,6 +39,8 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
         // Perform any further actions such as API calls or state updates
     }
   
+
+
     return (
     <div>
 
@@ -85,8 +86,15 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
 
         </form>
 
-        <RoomBookingDetails/>
-        <RoomBookingDetails/>
+        {allRoomLoading && <h3 id="loading">Loading...</h3>}
+        {allRoomError && <h3 id="error">Error: {allRoomError.message}</h3>}
+        {allRoomData && allRoomData.map(room => (
+            <RoomBookingDetails key={room.room_id} room={room}/>
+        ))}
+
+        
+
+        
 
     </div>
 
