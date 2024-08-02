@@ -1,21 +1,23 @@
 .activity-name{
-    background-color: rgb(211, 250, 250);
+    background-color: rgba(42, 123, 119);
     /* margin-top: 80px; */
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 16px;
-    padding-top: 16px;
+    /* padding-bottom: 16px; */
+    /* padding-top: 16px; */
     font-family: Inter;
-    color: rgba(42, 123, 119);
+    color: white;
     height: 80px;
     display: flex;
     align-items: center;
     width: 100%;
 }
 .activity-form{
+    /* background-color: rgba(255, 138, 152, 0.286); */
     background-color: rgba(211, 250, 250, 0.473);
     height: 375px;
     width: 100%;
+    min-width: 400px;
 }
 .activity-form p{
     color: rgba(42, 123, 119);
@@ -67,7 +69,7 @@
 .activity-textbox button{
     /* margin-left: 32px; */
     /* margin-right: 32px; */
-    background-color: rgba(42, 123, 119);
+    background-color: rgba(255, 138, 152);
     border: none;
     padding: 8px;
     border-radius: 8px;

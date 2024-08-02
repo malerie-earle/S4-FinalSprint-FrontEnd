@@ -4,7 +4,7 @@ import parasailing from "../images/parasailing.jpg"
 const ActivityDetails = () => {
   return (
     <form className="activity-form">
-      <h3 className="activity-name">ACTIVITY NAME HERE</h3>
+      <h3 className="activity-name">Activity Name Here</h3>
       <div className="activity-image-text">
         <img src={parasailing} alt="Example Activity" className="activityImage"/>
         <div className="activity-textbox">
