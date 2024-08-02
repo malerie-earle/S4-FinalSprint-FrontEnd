@@ -13,8 +13,8 @@ const Nav = () => {
                 <p>Malé, Maldives</p>
             </div>
             <div className="nav1">
-                <Link className="navLinks1" id="home">HOME</Link>
-                <Link className="navLinks1" id="our-rooms">OUR ROOMS</Link>
+                <Link to="/" className="navLinks1" id="home">HOME</Link>
+                <Link to="/room-availability" className="navLinks1" id="our-rooms">OUR ROOMS</Link>
             </div>
         </div>
 
@@ -27,7 +27,7 @@ const Nav = () => {
                 <Link id="bookYourStay">Book your stay <img src={ForwardArrow} alt="Forward Arrow" className="forwardArrow"/></Link>
             </div>
             <div className="nav2">
-                <Link className="navLinks2" id="activities">ACTIVITIES</Link>
+                <Link to="/activity-availability" className="navLinks2" id="activities">ACTIVITIES</Link>
                 <Link className="navLinks2" id="dining">DINING</Link>
             </div>
         </div>
