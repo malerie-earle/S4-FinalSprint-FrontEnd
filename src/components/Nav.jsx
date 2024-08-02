@@ -1,7 +1,7 @@
-import "../styles/nav.css"
-import logo from "../images/logo.png"
 import { Link } from "react-router-dom";
-import ForwardArrow from "../images/arrow_forward.png"
+import ForwardArrow from "../images/arrow_forward.png";
+import logo from "../images/logo.png";
+import "../styles/nav.css";
 
 const Nav = () => {
   return (
@@ -9,8 +9,8 @@ const Nav = () => {
 
         <div className="box1">
             <div className="address">
-                <p>33 Island Road</p>
-                <p>Avalonia, NZ</p>
+                <p>33 Coral Reef Drive</p>
+                <p>Malé, Maldives</p>
             </div>
             <div className="nav1">
                 <Link className="navLinks1" id="home">HOME</Link>
@@ -23,7 +23,7 @@ const Nav = () => {
         
         <div className="box2">
             <div className="phoneAndBook">
-                <p>1-800-777-2345</p>
+                <p>1-800-333-1111</p>
                 <Link id="bookYourStay">Book your stay <img src={ForwardArrow} alt="Forward Arrow" className="forwardArrow"/></Link>
             </div>
             <div className="nav2">

@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: row; /* Arrange button and additional text side by side */
   align-items: center; /* Center items vertically */
-  gap: 20px; /* Space between button and additional text */
+  gap: 8px; /* Space between button and additional text */
   width: 100%;
   justify-content: center; /* Center the content horizontally */
   margin-top: 10px; /* Adjust margin to position container properly */
@@ -77,13 +77,13 @@
 
 /* Style for the additional text */
 .overlay .additional-text {
-  font-size: 1.55rem; /* Different font size for additional text */
-  font-family: 'Arial', sans-serif; /* Different font family */
+  font-size: 1.45rem; /* Different font size for additional text */
+  font-family: 'Petit Formal Script', cursive;
   color: rgb(255, 255, 255); /* Text color */
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflowing text */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-right: 95px;
 }
 
@@ -106,3 +106,152 @@
     font-size: 1rem; /* Smaller font size for smaller screens */
   }
 }
+
+.rectangle-box {
+  width: 85%;
+  max-width: 100%; /* Ensure it doesn't exceed this width */
+  height: 120px; /* Height of the rectangle box */
+  background-color: rgb(255, 138, 152); /* Background color with transparency */
+  margin: 25px auto; /* Center it horizontally with some margin */
+  margin-top: 60px;
+  position: relative; /* Position relative for z-index to work */
+  top: -40px;
+  z-index: 1; /* Higher z-index to place it on top */
+}
+
+.rectangle-box2 {
+  width: 100%; /* Make the width consistent with rectangle-box */
+  max-width: 100%; /* Ensure it doesn't exceed this width */
+  height: 900px; /* Height of the rectangle box */
+  background-color: rgb(211, 250, 250); /* Background color with transparency */
+  margin: -160px auto 20px; /* Ensure it has positive margin-top */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange children in a column */
+}
+
+
+
+
+.highlighted-word {
+  font-family: 'Petit Formal Script', cursive; /* Font for the highlighted word */
+  font-size: 3rem; /* Larger font size for the highlighted word */
+  color: rgb(42, 123, 119); /* Text color */
+  text-align: center; /* Center text */
+  align-items: center;
+  position: relative;
+  top: -20px;
+}
+
+.rectangle-box2-text {
+  font-family: 'DM Serif Display', serif; /* Font for the text */
+  font-size: 2rem; /* Default font size */
+  margin: 0; /* Remove default margin */
+  color: rgb(42, 123, 119); /* Text color */
+  text-align: center; /* Center text */
+  position: relative;
+  top: -20px;
+
+}
+
+/* Container to hold the boxes */
+.box-container {
+  display: flex; /* Use flexbox to align items in a row */
+  justify-content: space-between; /* Space out the boxes evenly */
+  gap: 20px; /* Space between the boxes */
+  position: relative;
+  top: 25px;
+}
+
+/* Style for each box */
+.small-box-1 {
+  width: 300px; /* Width of the box */
+  height: 300px; /* Height of the box */
+  background-image: url('../images/smallbox2.jpg');
+  background-size: cover; /* Cover the entire box with the image */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+.small-box-2 {
+  width: 300px; /* Width of the box */
+  height: 300px; /* Height of the box */
+  background-image: url('../images/smallbox1.jpg'); /* Replace with your image path */
+  background-size: cover; /* Cover the entire box with the image */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+.small-box-3 {
+  width: 300px; /* Width of the box */
+  height: 300px; /* Height of the box */
+  background-image: url('../images/smallbox3.jpg'); /* Replace with your image path */
+  background-size: cover; /* Cover the entire box with the image */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+/* Container to hold the boxes */
+.box-container {
+  display: flex; /* Use flexbox to align items */
+  justify-content: center; /* Center the boxes horizontally */
+  align-items: center; /* Center the boxes vertically */
+  gap: 20px; /* Space between the boxes */
+  margin-top: 20px; /* Space above the boxes */
+  position: relative; /* Needed for absolute positioning within the container */
+  height: 300px; /* Ensure it has a height for vertical centering */
+}
+
+/* Style for the text within the box-container */
+.rectangle-box2-text2 {
+  font-family: 'Roboto', sans-serif; /* Font for the text */
+  font-size: .9rem; /* Default font size */
+  color: rgb(42, 123, 119); /* Text color */
+  position: absolute; /* Absolute positioning within the container */
+  top: 115%; /* Center text vertically */
+  left: 40%; /* Center text horizontally */
+  line-height: 1.4; /* Adjust line height for better readability */
+}
+
+
+
+
+
+
+.beach-box {
+  width: 100%; /* Make the width consistent with rectangle-box */
+  max-width: 100%; /* Ensure it doesn't exceed this width */
+  height: 300px; /* Height of the rectangle box */
+  background-image: url('../images/beachpic.jpg'); /* Path to your image */
+  background-size: cover; /* Ensure the image covers the entire div */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  margin: -20px auto 20px; /* Adjust margin to move it up */
+  position: relative; /* Position relative for z-index to work */
+  z-index: 0; /* Lower z-index to place it behind */
+}
+
+.info-box {
+  width: 30%; /* Responsive width using rem units */
+  height: 450px;
+  background-color: rgb(42, 123, 119); /* Semi-transparent white background */
+  margin-top: -170px;
+  margin-left: 300px;
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a slight shadow for depth */
+  text-align: center; /* Center the text */
+}
+
+.info-box p {
+  font-size: 2.2rem; /* Responsive font size */
+  color: #ffffff; /* Text color */
+}
+
+
+
+
