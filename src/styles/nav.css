@@ -25,13 +25,13 @@
 }
 .nav1{
     display: flex;
-    color: rgba(158, 126, 79, 1);
+    color: rgba(8, 159, 149);;
     justify-content: left;
     
 }
 .nav2{
     display: flex;
-    color: rgba(158, 126, 79, 1);
+    color: rgba(8, 159, 149);
     justify-content: right;
 }
 .navLinks1{
@@ -46,7 +46,7 @@
 
 a:link, a:visited {
     text-decoration: none;
-    color: rgba(158, 126, 79, 1);
+    color: rgba(8, 159, 149);
 }
 
 a:hover {
