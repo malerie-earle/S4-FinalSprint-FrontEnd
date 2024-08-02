@@ -1,7 +1,7 @@
 .roomData{
     display: flex;
     justify-content: space-between;
-    gap: 24px;
+    gap: 32px;
     padding: 75px;
     /* background-color: pink; */
     flex-wrap: nowrap;

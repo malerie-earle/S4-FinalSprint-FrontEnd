@@ -1,9 +1,9 @@
 .activityData{
     display: flex;
-    justify-content: space-between;
-    gap: 24px;
+    /* justify-content: space-between; */
+    gap: 32px;
     padding: 75px;
     /* background-color: pink; */
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     min-width:fit-content;
 }

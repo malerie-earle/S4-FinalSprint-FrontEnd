@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/activity-room-search-bars.css"
 
-const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests}) => {
+const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests, allRoomData}) => {
     
 
     const [error, setError] = useState('');
@@ -72,6 +72,15 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                     <div className="guests">
                         <label htmlFor="guests">GUESTS: </label>
                         <input type="number" name="guests" id="guests" value={guests} onChange={handleGuestChange}/>
+                    </div>
+                    <div className="type">
+                        <label htmlFor="type">TYPE: </label>
+                        <select name="type" className="select-room-type">
+                            <option>Select your preferred accommodation</option>
+                            {allRoomData && allRoomData.map(room => (
+                                <option key={room.room_id}>{room.view}</option>
+                            ))}
+                        </select>
                     </div>
                 </div>
 
