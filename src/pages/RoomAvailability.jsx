@@ -86,11 +86,13 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
 
         </form>
 
-        {allRoomLoading && <h3 id="loading">Loading...</h3>}
-        {allRoomError && <h3 id="error">Error: {allRoomError.message}</h3>}
-        {allRoomData && allRoomData.map(room => (
-            <RoomBookingDetails key={room.room_id} room={room}/>
-        ))}
+        <div className="roomData">
+            {allRoomLoading && <h3 id="loading">Loading...</h3>}
+            {allRoomError && <h3 id="error">Error: {allRoomError.message}</h3>}
+            {allRoomData && allRoomData.map(room => (
+                <RoomBookingDetails key={room.room_id} room={room}/>
+            ))}
+        </div>
 
         
 
