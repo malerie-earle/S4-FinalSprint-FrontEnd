@@ -26,3 +26,53 @@
     gap: 8px;
     /* margin-left: 24px; */
 }
+
+/* ACTIVITY/ROOM BOOKING-DETAIL COMPONENTS */
+
+.detail-header{
+    background-color: #00808032;
+    /* margin-top: 80px; */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    font-family: Inter;
+    color: teal;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    min-width: 400px;
+}
+.details{
+    /* color: teal; */
+    display: flex;
+    /* border-bottom: 3px solid rgba(241, 231, 214, 1);; */
+    /* background-color: rgba(252, 238, 212, 0.572); */
+    background-color: rgba(0, 128, 128, 0.091);
+    /* justify-content: space-between; */
+    /* padding-bottom: 36px; */
+    height: 375px;
+    min-width: 400px;
+}
+.details p{
+    color: teal;
+    font-size: 12pt;
+}
+
+.textbox{
+    display: flex;
+    flex-direction: column;
+}
+.textbox button{
+    margin-left: 32px;
+    margin-right: 32px;
+    background-color: teal;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 12pt;
+    width: 140px;
+}
+

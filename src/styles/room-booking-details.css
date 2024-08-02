@@ -1,3 +1,87 @@
-.roomDescription{
-    margin: 40px;
+.roomBookingDetails{
+    width: 50%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
+
+.roomDescription{
+    margin-left: 24px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+    margin-right: 24px;
+    /* padding-right: 40px; */
+    /* background-color: aqua; */
+}
+.occupancy-beds{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 16px;
+    /* background-color: aqua; */
+}
+.symbols-box{
+    width: fit-content;
+    /* background-color: red; */
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    /* font-size: 16pt !important; */
+}
+.symbols{
+    width: 28px;
+}
+
+/* ACTIVITY/ROOM BOOKING-DETAIL COMPONENTS */
+
+.detail-header{
+    background-color: rgba(0, 128, 128, 0.195);
+    /* margin-top: 80px; */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    font-family: Inter;
+    color: teal;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    min-width: 400px;
+}
+.details{
+    /* color: teal; */
+    display: flex;
+    /* border-bottom: 3px solid rgba(241, 231, 214, 1);; */
+    /* background-color: rgba(252, 238, 212, 0.572); */
+    background-color: rgba(0, 128, 128, 0.091);
+    /* justify-content: space-between; */
+    /* padding-bottom: 36px; */
+    height: 375px;
+    min-width: 400px;
+}
+.details p{
+    color: teal;
+    font-size: 12pt;
+}
+
+.textbox{
+    display: flex;
+    flex-direction: column;
+}
+.textbox button{
+    margin-left: 32px;
+    margin-right: 32px;
+    background-color: teal;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 12pt;
+    width: 140px;
+}
+
