@@ -1,17 +1,39 @@
-import "../styles/activity-room-booking-details.css"
+// import "../styles/activity-room-booking-details.css"
 import "../styles/room-booking-details.css"
-import gardenView from "../images/gardenView.jpg"
+import person from "../images/person.png"
+import bed from "../images/bed.png"
+import { useState } from 'react';
+import RoomImageSlideshow from "../components/RoomImageSlideshow"
 
-const BookingDetails = () => {
+const BookingDetails = ({room}) => {
+
+  const description = room.description;
+  const roomName = room.room_name;
+  const image1 = room.image1;
+  const image2 = room.image2;
+  const image3 = room.image3;
+  const imagesList = [];
+  imagesList.push(image1);
+  imagesList.push(image2);
+  imagesList.push(image3);
+  console.log(imagesList);
+  const occupancy = room.occupancy;
+  const beds = room.beds;
+
   return (
-    <div>
-        <h3 className="detail-header">GARDEN VIEW BUNGALOW</h3>
+    <div className="roomBookingDetails">
+        <h3 className="detail-header">{roomName}</h3>
         <form className="details">
-            <img src={gardenView} alt="Example Room"/>
-            <div className="textbox">
-                <p className="roomDescription">The garden view bungalow rooms are made of wood that provide a comfortable and relaxing stay in addition to the wide variety of amenities, air conditioning, full bathroom, hairdryer, satellite TV, minibar, telephone, safe, balcony and terrace.</p>
-                <button type="submit">BOOK NOW</button>
-            </div>
+          <RoomImageSlideshow imagesList={imagesList}/>
+          <div className="textbox">
+              <p className="roomDescription">{description}</p>
+              <div className="occupancy-beds">
+                
+                <p className="symbols-box"><img src={person} alt="Guests" className="symbols"/>{occupancy}</p>
+                <p className="symbols-box"><img src={bed} alt="Beds" className="symbols"/>{beds}</p>
+              </div>
+              <button type="submit">BOOK NOW</button>
+          </div>
         
         </form>
     </div>
