@@ -1,11 +1,11 @@
 // import "../styles/activity-room-booking-details.css"
-import "../styles/room-booking-details.css"
+import "../styles/room-details.css"
 import person from "../images/person.png"
 import bed from "../images/bed.png"
 import { useState } from 'react';
-import RoomImageSlideshow from "../components/RoomImageSlideshow"
+import RoomImageSlideshow from "./RoomImageSlideshow"
 
-const BookingDetails = ({room}) => {
+const RoomDetails = ({room}) => {
 
   const description = room.description;
   const roomName = room.room_name;
@@ -22,10 +22,10 @@ const BookingDetails = ({room}) => {
 
   return (
     <div className="roomBookingDetails">
-        <h3 className="detail-header">{roomName}</h3>
-        <form className="details">
+        <h3 className="room-name">{roomName}</h3>
+        <form className="room-form">
           <RoomImageSlideshow imagesList={imagesList}/>
-          <div className="textbox">
+          <div className="room-textbox">
               <p className="roomDescription">{description}</p>
               <div className="occupancy-beds">
                 
@@ -41,4 +41,4 @@ const BookingDetails = ({room}) => {
   );
 };
 
-export default BookingDetails;
+export default RoomDetails;

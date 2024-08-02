@@ -1,72 +1,73 @@
-.activity-date{
-    display: flex;
-    gap: 24px;
-}
-#activityDescription{
-    margin-left: 40px;
-    margin-top: 40px;
-}
-#activityDate{
-    margin-left: 40px;
-    margin-top: 8px;
-}
-#activityTimes{
-    margin-left: 40px;
-    margin-bottom: 8px;
-    margin-top: 8px;
-}
-.activityTimes{
-    display: flex;
-    flex-direction: column;
-    margin-left: 40px;
-    margin-bottom: 40px;
-}
-.times{
-    display: flex;
-    gap: 8px;
-    /* margin-left: 24px; */
-}
-
-/* ACTIVITY/ROOM BOOKING-DETAIL COMPONENTS */
-
-.detail-header{
-    background-color: #00808032;
+.activity-name{
+    background-color: rgb(211, 250, 250);
     /* margin-top: 80px; */
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 16px;
     padding-top: 16px;
     font-family: Inter;
-    color: teal;
+    color: rgba(42, 123, 119);
     height: 80px;
     display: flex;
     align-items: center;
-    min-width: 400px;
+    width: 100%;
 }
-.details{
-    /* color: teal; */
-    display: flex;
-    /* border-bottom: 3px solid rgba(241, 231, 214, 1);; */
-    /* background-color: rgba(252, 238, 212, 0.572); */
-    background-color: rgba(0, 128, 128, 0.091);
-    /* justify-content: space-between; */
-    /* padding-bottom: 36px; */
+.activity-form{
+    background-color: rgba(211, 250, 250, 0.473);
     height: 375px;
-    min-width: 400px;
+    width: 100%;
 }
-.details p{
-    color: teal;
+.activity-form p{
+    color: rgba(42, 123, 119);
     font-size: 12pt;
 }
-
-.textbox{
+.activity-image-text{
+    display: flex;
+}
+.activityImage{
+    width: 50%;
+}
+.activity-textbox{
     display: flex;
     flex-direction: column;
+    /* background-color: aquamarine; */
+    padding: 24px;
+    width: 100%;
 }
-.textbox button{
-    margin-left: 32px;
-    margin-right: 32px;
-    background-color: teal;
+#activityDescription{
+    /* margin-left: 40px; */
+    margin-top: 40px;
+}
+#activityDate{
+    /* margin-left: 40px; */
+    margin-top: 8px;
+}
+#activityTimes{
+    /* margin-left: 40px; */
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.activityTimes{
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 40px; */
+    /* margin-bottom: 40px; */
+}
+/* .activity-date{
+    display: flex;
+    gap: 24px;
+} */
+.times{
+    display: flex;
+    gap: 8px;
+    color: teal;
+    /* margin-left: 24px; */
+}
+
+.activity-textbox button{
+    /* margin-left: 32px; */
+    /* margin-right: 32px; */
+    background-color: rgba(42, 123, 119);
     border: none;
     padding: 8px;
     border-radius: 8px;
@@ -74,5 +75,6 @@
     font-weight: 600;
     font-size: 12pt;
     width: 140px;
+    margin-top: 24px;
 }
 
