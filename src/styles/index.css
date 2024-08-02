@@ -108,6 +108,8 @@
   position: relative;
   top: -40px;
   z-index: 1;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .4);
+
 }
 
 .rectangle-box2 {
@@ -189,12 +191,12 @@
 
 .rectangle-box2-text2 {
   font-family: 'Roboto', sans-serif;
-  font-size: .9rem;
+  font-size: .95rem;
   color: rgb(42, 123, 119);
   position: absolute;
-  top: 115%;
+  top: 117%;
   left: 40%;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .beach-box {
@@ -220,7 +222,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .6);
   text-align: center;
 }
 

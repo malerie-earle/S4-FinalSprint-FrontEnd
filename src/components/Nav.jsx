@@ -28,7 +28,7 @@ const Nav = () => {
             </div>
             <div className="nav2">
                 <Link className="navLinks2" id="activities">ACTIVITIES</Link>
-                <Link className="navLinks2" id="account">ACCOUNT</Link>
+                <Link className="navLinks2" id="dining">DINING</Link>
             </div>
         </div>
 

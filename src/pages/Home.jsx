@@ -29,7 +29,7 @@ const Home = () => {
   <p className="rectangle-box2-text2">
   Discover a haven of tranquility at our exquisite resort.<br></br> Surrounded by crystal-clear waters and lush tropical landscapes,
   our sanctuary invites you to unwind in style. Revel in lavish accommodations, savor gourmet cuisine, and immerse yourself in unparalleled luxury.
-  Your perfect escape to paradise awaits,<br></br> where every moment is designed to rejuvenate and inspire.
+  Your perfect escape to paradise awaits, where every moment is designed to rejuvenate and inspire.
 </p>
 
 </div>
