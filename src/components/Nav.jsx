@@ -27,8 +27,8 @@ const Nav = () => {
                 <Link id="bookYourStay">Book your stay <img src={ForwardArrow} alt="Forward Arrow" className="forwardArrow"/></Link>
             </div>
             <div className="nav2">
-                <Link to="/activity-availability" className="navLinks2" id="activities">ACTIVITIES</Link>
-                <Link className="navLinks2" id="dining">DINING</Link>
+                <Link className="navLinks2" id="activities">ACTIVITIES</Link>
+                <Link className="navLinks2" id="dining">ACCOUNT</Link>
             </div>
         </div>
 
