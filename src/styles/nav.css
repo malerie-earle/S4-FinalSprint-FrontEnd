@@ -32,6 +32,7 @@
 .nav2{
     display: flex;
     color: rgba(8, 159, 149);
+    color: rgba(8, 159, 149);
     justify-content: right;
 }
 .navLinks1{
@@ -46,6 +47,7 @@
 
 a:link, a:visited {
     text-decoration: none;
+    color: rgba(8, 159, 149);
     color: rgba(8, 159, 149);
 }
 

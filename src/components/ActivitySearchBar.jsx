@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/activity-room-search-bars.css"
 
-const ActivitySearchBar = ({activityDate, setActivityDate}) => {
+const ActivitySearchBar = ({activityDate, setActivityDate, allActivityData}) => {
        
     const [error, setError] = useState('');
 
@@ -37,8 +37,8 @@ const ActivitySearchBar = ({activityDate, setActivityDate}) => {
             <form className="search-info" onSubmit={handleSearch}>
 
                 <div className="activity-date">
-                    <div className="checkin-checkout-boxes">
-                        <label htmlFor="activity-date">ACTIVITY DATE: </label>
+                    <div className="date-name-boxes">
+                        <label htmlFor="activity-date">DATE: </label>
                         <input 
                         type="date" 
                         name="activity-date" 
@@ -46,6 +46,16 @@ const ActivitySearchBar = ({activityDate, setActivityDate}) => {
                         value={activityDate}
                         onChange={handleActivityDateChange}
                         />
+                    </div>
+
+                    <div className="date-name-boxes">
+                        <label htmlFor="activity-name">ACTIVITY NAME: </label>
+                        <select name="activity-name" className="select-activity-name">
+                            <option>Please select your activity</option>
+                            {allActivityData && allActivityData.map(activity => (
+                                <option key={activity.activity_id}>{activity.name}</option>
+                            ))}
+                        </select>
                     </div>
                     
                 </div>

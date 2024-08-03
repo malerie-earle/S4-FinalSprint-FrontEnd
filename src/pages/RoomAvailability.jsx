@@ -11,7 +11,7 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
 
         <Nav/>
 
-        <RoomSearchBar checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests}/>
+        <RoomSearchBar checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests} allRoomData={allRoomData}/>
 
         <div className="roomData">
             {allRoomLoading && <h3 id="loading">Loading...</h3>}
