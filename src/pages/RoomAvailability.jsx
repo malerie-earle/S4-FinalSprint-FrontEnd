@@ -5,7 +5,7 @@ import Nav from "../components/Nav"
 import RoomSearchBar from "../components/RoomSearchBar"
 
 const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests, allRoomData, allRoomLoading, allRoomError}) => {
-
+    console.log(allRoomData);
     return (
     <div>
 
