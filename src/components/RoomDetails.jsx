@@ -18,7 +18,7 @@ const RoomDetails = ({room}) => {
 
   return (
     <div className="roomBookingDetails">
-        <h3 className="room-name">{room.name}</h3>
+        <h3 className="room-name">{room.room_name}</h3>
         <form className="room-form">
           <RoomImageSlideshow imagesList={imagesList}/>
           <div className="room-textbox">
