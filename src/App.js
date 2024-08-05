@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import './styles/index.css';
 import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
@@ -11,17 +10,39 @@ import BookingConfirmation from './pages/BookingConfirmation';
 import useFetch from './hooks/useFetch';
 import usePost from './hooks/usePost';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 function App() {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [guests, setGuests] = useState('');
   const [activityDate, setActivityDate] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [user, setUser] = useState(null);
 
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetch('http://localhost:8080/api/rooms');
   const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetch('http://localhost:8080/api/activities');
   const { data: activityBookingData, loading: activityBookingLoading, error: activityBookingError, postData: postActivityBookingData } = usePost('http://localhost:8080/api/activities/book');
 
+  const handleSaveUserToDatabase = async () => {
+    try {
+      const { username, attributes: { email, given_name, family_name } } = user;
+      const response = await fetch('http://localhost:8080/api/saveUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, givenName: given_name, familyName: family_name }),
+      });
+      const data = await response.json();
+      console.log('User data saved successfully:', data);
+    } catch (error) {
+      console.error('Error saving user data:', error);
+    }
+  };
+  
   return (
       <Routes>
         {/* Public routes accessible without authentication */}
@@ -59,20 +80,21 @@ function App() {
         <Route
           path="/*"
           element={
-            <Authenticator>
-              {({ signOut, user }) => (
+            <Authenticator variation="modal" signUpAttributes={[
+              'email',
+              'given_name',
+              'family_name',
+              'preferred_username'
+            ]}>
+              {({ signOut, user }) => user ? (
                 <Routes>
-                  {user ? (
-                    <>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/booking" element={<Booking />} />
-                      <Route path="/account" element={<Account signOut={signOut} />} />
-                      <Route path="/booking-confirmation" element={<BookingConfirmation />} />
-                    </>
-                  ) : (
-                    <Route path="*" element={<Home />} /> // Redirect to home or a 404 page
-                  )}
+                  <Route path="/booking" element={<Booking />} />
+                  <Route path="/account" element={<Account signOut={signOut} />} />
+                  <Route path="/booking-confirmation" element={<BookingConfirmation />} />
+                  <Route path="*" element={<Home />} />
                 </Routes>
+              ) : (
+                <Home />
               )}
             </Authenticator>
           }
