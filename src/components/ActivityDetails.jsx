@@ -10,7 +10,7 @@ const ActivityDetails = ({activity}) => {
         <img src={activity.image1} alt="Example Activity" className="activityImage"/>
         <div className="activity-textbox">
             <p id="activityDescription">{activity.description}</p>
-            <p id="activityDate">Occurs daily at _____</p>
+            <p id="activityDate">Occurs daily at {activity.time}</p>
             <button type="submit">BOOK NOW</button>
         </div>
       </div>
