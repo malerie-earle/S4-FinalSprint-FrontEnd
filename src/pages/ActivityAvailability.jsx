@@ -53,7 +53,7 @@ const ActivityAvailability = ({allActivityData, activityDate, setActivityDate, a
         };
     
         fetchActivities();
-      }, [paramDate, paramName, activityDate, activityName]);
+      }, [paramDate, paramName]);
 
     return (
 
