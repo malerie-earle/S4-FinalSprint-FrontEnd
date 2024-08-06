@@ -77,9 +77,12 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                         <label htmlFor="type">TYPE: </label>
                         <select name="type" className="select-room-type">
                             <option>Select your preferred accommodation</option>
-                            {allRoomData && allRoomData.map(room => (
-                                <option key={room.room_id}>{room.view}</option>
-                            ))}
+                            <option value="room">Room</option>
+                            <option value="suite">Suite</option>
+                            <option value="villa">Villa</option>
+                            {/* {allRoomData && allRoomData.map(room => (
+                                <option key={room.room_id}>{room.type}</option>
+                            ))} */}
                         </select>
                     </div>
                 </div>

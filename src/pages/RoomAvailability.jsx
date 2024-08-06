@@ -1,5 +1,4 @@
 import "../styles/room-availability.css"
-import { useState } from "react";
 import RoomDetails from "../components/RoomDetails";
 import Nav from "../components/Nav"
 import RoomSearchBar from "../components/RoomSearchBar"
