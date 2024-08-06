@@ -1,5 +1,5 @@
+import ActivityAvailability from "../pages/ActivityAvailability";
 import "../styles/activity-details.css"
-import parasailing from "../images/parasailing.jpg"
 
 const ActivityDetails = ({activity}) => {
 

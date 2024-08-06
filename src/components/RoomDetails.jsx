@@ -2,7 +2,7 @@
 import "../styles/room-details.css"
 import person from "../images/person.png"
 import bed from "../images/bed.png"
-import { useState } from 'react';
+// import { useState } from 'react';
 import RoomImageSlideshow from "./RoomImageSlideshow"
 
 const RoomDetails = ({room}) => {
