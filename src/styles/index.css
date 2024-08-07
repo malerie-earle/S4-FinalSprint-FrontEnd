@@ -228,7 +228,7 @@
   align-items: center;
   justify-content: space-evenly;
   box-shadow: 0 2px 15px rgba(0, 0, 0, .6);
-  padding: 20px; /* Optional: add padding for better spacing */
+  padding: 20px;
 }
 
 .info-box-logo {
@@ -238,8 +238,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: .09; /* Adjust the opacity value as needed */
-  margin-top: -50px; /* Moves the title up by 50px */
+  opacity: .09;
+  margin-top: -50px;
 
 }
 
@@ -250,7 +250,7 @@
   color: #ffffff;
   letter-spacing: 0.5rem;
   text-align: center;
-  margin-top: -150px; /* Moves the title up by 50px */
+  margin-top: -150px;
 }
 
 
@@ -261,7 +261,7 @@
   text-align: center;
   max-width: 90%;
   position: relative;
-  top: 10px; /* Moves the title up by 50px */
+  top: 10px;
   margin-bottom: -40px;
 }
 
