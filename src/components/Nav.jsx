@@ -28,7 +28,7 @@ const Nav = () => {
             </div>
             <div className="nav2">
                 <Link to="/activity-availability" className="navLinks2" id="activities">ACTIVITIES</Link>
-                <Link className="navLinks2" id="dining">ACCOUNT</Link>
+                <Link to="/account" className="navLinks2" id="dining">ACCOUNT</Link>
             </div>
         </div>
 
