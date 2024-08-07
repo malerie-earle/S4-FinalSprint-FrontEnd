@@ -33,8 +33,15 @@ const Home = () => {
       </div>
       <div className="beach-box"></div> {/* New rectangle box */}
       <div className="info-box">
-        <p>text goes here</p>
-      </div>
+        <div className="info-box-logo"></div>
+        <div className="testimonials-title">TESTIMONIALS</div>
+        <div className="testimonials1">"Island Serenity Resort was amazing. 
+          Beautiful views, comfortable rooms, and great service. We'll definitely be back!"</div>
+        <div className="testimonials2">"A paradise in the Maldives. The overwater bungalows were 
+          stunning and the food was fantastic. Perfect for our honeymoon."</div>
+        <div className="testimonials3">"A relaxing vacation spot with pristine beaches and clear waters.
+          The rooms were beautiful and the staff was friendly. Highly recommend!"</div>
+        </div>
       <div className="wave-box">
         <div className="wave-box-text"> B R E A T H T A K I N G&nbsp;&nbsp;&nbsp;A C C O M M O D A T I O N S.</div>
         <p>Discover our stunning accommodations at Island Serenity Resort. <br></br>Nestled in the heart of the Maldives, each room offers a blend of comfort and elegance with breathtaking views. <br></br>Relax in style with modern amenities, enjoy serene surroundings, and experience the perfect tropical getaway.</p>
