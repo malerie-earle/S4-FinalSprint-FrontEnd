@@ -105,7 +105,7 @@ function App() {
                       {user ? (
                         <>
                           <Route path="/" element={<Home />} />
-                          <Route path="/booking" element={<Booking />} />
+                          <Route path="/booking" element={<Booking user = {user}/>} />
                           <Route path="/account" element={<Account signOut={signOut} />} />
                           <Route path="/booking-confirmation" element={<BookingConfirmation />} />
                         </>
