@@ -1,36 +1,35 @@
 import React from 'react';
 import Nav from '../components/Nav';
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Booking = ({user}) => {
-  console.log(user);
+const ActivityBooking = ({user}) => {
   //fetch params from last page here: TODO
-
-  let user_id=1;
-  let room_id=2;
-  let start='2024-04-04';
-  let end='2024-04-06';
+  let date = useLocation().state.date
+  let activity = useLocation().state.activity
+  console.log(useLocation());
+  console.log(date);
+  console.log(activity);
+  console.log(activity.activityId);
 
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
+  const [dateForFetch, setDate] = useState(null);
+  const [activityForFetch, setActivity] = useState(null);
 
-  
-  const bookRoom = async () => {
+  useEffect(() => {
+    setDate(date)
+    setActivity(activity)
+}, [date,activity])
+
+  const bookActivity = async () => {
     try{
-      /*
-      let url = `http://localhost:8080/api/rooms/book?user_id=${user_id}&room_id=${room_id}&start=${start}&end=${end}`;
-      const response = await fetch(url);
-      */
-      
-      
-      const response = await fetch("http://localhost:8080/api/rooms/book", {
+      const response = await fetch("http://localhost:8080/api/activities/book", {
         method: 'POST',
         body: JSON.stringify({
-            user_id: user_id,
-            room_id: room_id,
-            start: start,
-            end: end
+            user_id: 1,
+            activity_id: 5,
+            date: date
           }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -50,7 +49,7 @@ const Booking = ({user}) => {
 
   function handleSubmit(event){
     event.preventDefault();
-    bookRoom();
+    bookActivity();
   }
   
  
@@ -65,7 +64,7 @@ const Booking = ({user}) => {
       return (
         <div>
           <h1>Booking</h1>
-          <p> Confirm booking for room {room_id} from {start} to {end} </p>
+          <p> Confirm booking for activity {activity.activityId}  for {date} </p>
           <form onSubmit={handleSubmit}>
             <div>
               <button type="submit"> Submit</button>
@@ -87,4 +86,4 @@ const Booking = ({user}) => {
 }
   
 
-export default Booking;
+export default ActivityBooking;
