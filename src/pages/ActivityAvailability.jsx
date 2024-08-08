@@ -59,34 +59,7 @@ const ActivityAvailability = ({
         };
     
         fetchActivities();
-      }, [paramDate, paramName]);
-
-        // Determine the URL based on name and date
-        if (name && name !== "Please select your activity") {
-          url = `http://localhost:8080/api/activities/availability?date=${date}&name=${encodeURIComponent(name)}`;
-          const response = await fetch(url);
-          const result = await response.json();
-          setFilteredActivity(result.length > 0 ? result[0] : null); // Assuming result is an array
-          setFilteredActivities([]);
-        } else {
-          url = `http://localhost:8080/api/activities/availability/all?date=${date}`;
-          const response = await fetch(url);
-          const result = await response.json();
-          setFilteredActivities(result);
-          setFilteredActivity(null);
-        }
-      } catch (err) {
-        setError(err.message || 'An error occurred');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchActivities();
-  }, [paramDate, paramName, activityDate, activityName]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+      }, [paramDate, paramName, activityDate, activityName]);
 
   return (
     <div>
