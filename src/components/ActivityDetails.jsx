@@ -1,8 +1,9 @@
 import ActivityAvailability from "../pages/ActivityAvailability";
+import { Link } from "react-router-dom";
 import "../styles/activity-details.css"
 
-const ActivityDetails = ({activity}) => {
-
+const ActivityDetails = ({activity, dateToBook}) => {
+  console.log(activity);
   return (
     <form className="activity-form">
       <h3 className="activity-name">{activity.name}</h3>
@@ -11,7 +12,10 @@ const ActivityDetails = ({activity}) => {
         <div className="activity-textbox">
             <p id="activityDescription">{activity.description}</p>
             <p id="activityDate">Occurs daily at {activity.time}</p>
-            <button type="submit">BOOK NOW</button>
+            <p>{dateToBook}</p>
+            <Link to='/activity-booking' state={{date: dateToBook, activity: activity}}>
+              <button type="submit">BOOK NOW</button>
+            </Link>
         </div>
       </div>
   

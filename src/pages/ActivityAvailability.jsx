@@ -67,10 +67,10 @@ const ActivityAvailability = ({allActivityData, activityDate, setActivityDate, a
         <div className="activityData">
             {filteredActivities.length > 1? (
             filteredActivities.map((activity) => (
-                <ActivityDetails key={activity.activity_id} activity={activity} />
+                <ActivityDetails key={activity.activity_id} activity={activity} dateToBook={activityDate} />
             ))
             ) : (
-                <ActivityDetails activity={filteredActivity} />
+                <ActivityDetails activity={filteredActivity} dateToBook={activityDate} />
             )}
         </div>
 

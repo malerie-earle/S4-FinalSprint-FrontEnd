@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
 import Booking from './pages/Booking';
+import ActivityBooking from './pages/ActivityBooking';
 import Account from './pages/Account';
 import BookingConfirmation from './pages/BookingConfirmation';
 import { useState, useEffect} from 'react';
@@ -106,6 +107,7 @@ function App() {
                         <>
                           <Route path="/" element={<Home />} />
                           <Route path="/booking" element={<Booking user = {user}/>} />
+                          <Route path="/activity-booking" element={<ActivityBooking user = {user}/>} />
                           <Route path="/account" element={<Account signOut={signOut} />} />
                           <Route path="/booking-confirmation" element={<BookingConfirmation />} />
                         </>
