@@ -57,7 +57,7 @@ const ActivityBooking = ({user}) => {
       return (
         <div>
           <h1>Booking</h1>
-          <p> Confirm booking for activity {activity.activityId}  for {date} </p>
+          <p> Confirm booking for activity {activity.name}  for {date} </p>
           <form onSubmit={handleSubmit}>
             <div>
               <button type="submit"> Submit</button>
