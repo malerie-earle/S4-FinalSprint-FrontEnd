@@ -11,6 +11,7 @@ const ActivityBooking = ({user}) => {
   console.log(date);
   console.log(activity);
   console.log(activity.activityId);
+  console.log(user);
 
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);

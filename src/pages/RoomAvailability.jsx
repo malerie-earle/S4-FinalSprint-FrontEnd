@@ -8,8 +8,6 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
     return (
     <div>
 
-        <Nav/>
-
         <RoomSearchBar checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests} allRoomData={allRoomData}/>
 
         <div className="roomData">

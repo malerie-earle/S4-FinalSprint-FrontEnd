@@ -1,27 +1,60 @@
 // src/components/UserDetails.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getCurrentUser } from '@aws-amplify/auth';
 
-const getUserInfo = (user) => ({
-  FName: user.attributes?.given_name || 'N/A',
-  LName: user.attributes?.family_name || 'N/A',
-  Email: user.attributes?.email || 'N/A',
-  Username: user.username || 'N/A',
-});
+const UserDetails = ({ signOut }) => {
+  const [userDetails, setUserDetails] = useState(null);
+  const [error, setError] = useState(null);
 
-const UserDetails = ({ user, signOut }) => {
-  const userInfo = user ? getUserInfo(user) : null;
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const currentUser = await getCurrentUser();
+        const username = currentUser.username;
+        console.log('Current user:', username);
+        if (username) {
+          const response = await fetch(`http://localhost:8080/api/users/${username}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json; charset=UTF-8',
+            },
+          });
 
-  if (!userInfo) {
-    return <div>Loading...</div>;
+          if (!response.ok) {
+            throw new Error('Failed to fetch user details');
+          }
+
+          const result = await response.json();
+          setUserDetails(result);
+          console.log('User details:', result);
+        }
+      } catch (err) {
+        console.error('Error fetching current user or user details:', err);
+        setError('Cannot find user details, try again later.');
+      }
+    };
+
+    fetchCurrentUser();
+  }, []);
+
+  if (error) {
+    return <p>{error}</p>;
   }
 
+  if (!userDetails) {
+    return <p>Loading...</p>;
+  }
+
+  const { username, firstName, lastName, email } = userDetails;
+
+  // Return an object with the user details (if you want to use them outside of rendering)
   return (
     <div>
-      <p>First Name: {userInfo.FName}</p>
-      <p>Last Name: {userInfo.LName}</p>
-      <p>Email: {userInfo.Email}</p>
-      <p>Username: {userInfo.Username}</p>
-      <button onClick={signOut}>Sign Out</button>
+      <p>Username: {username || 'N/A'}</p>
+      <p>First Name: {firstName || 'N/A'}</p>
+      <p>Last Name: {lastName || 'N/A'}</p>
+      <p>Email: {email || 'N/A'}</p>
+
     </div>
   );
 };
