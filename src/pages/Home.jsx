@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import Slideshow from '../components/Slideshow';
+import Footer from '../components/Footer';
 import '../styles/index.css';
 
 const Home = () => {
@@ -96,6 +97,8 @@ const Home = () => {
           At our resort, each moment is crafted to make your stay extraordinary.</p></div>
 
       </div>
+      <div className="activities-box"></div>
+      <Footer />
     </div>
   );
 };
