@@ -19,13 +19,13 @@ const Home = () => {
       <div className="rectangle-box">
         <div className="booking-container">
           <form className="booking-form">
-            <div>
+            <div className="custom-date-input">
               <label htmlFor="check-in">Check-in</label>
-              <input type="" id="check-in" placeholder="Check-in date" />
+              <input type="date" id="check-in" placeholder="Check-in date" />
             </div>
-            <div>
+            <div className="custom-date-input">
               <label htmlFor="check-out">Check-out</label>
-              <input type="" id="check-out" placeholder="Check-out date" />
+              <input type="date" id="check-out" placeholder="Check-out date" />
             </div>
             <div>
               <label htmlFor="adults">Adults</label>
@@ -63,7 +63,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="beach-box"></div> {/* New rectangle box */}
+      <div className="beach-box"></div> {}
       <div className="info-box">
         <div className="info-box-logo"></div>
         <div className="testimonials-title">TESTIMONIALS</div>
