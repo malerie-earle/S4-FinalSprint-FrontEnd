@@ -28,6 +28,38 @@ const ActivityAvailability = ({
         const name = paramName || activityName;
 
         let url = 'http://localhost:8080/api/activities';
+            // Fetch filtered activities based on name
+            if (name && name !== "Please select your activity") {
+                url = `http://localhost:8080/api/activities/availability?date=${date}&name=${encodeURIComponent(name)}`;
+                const response = await fetch(url);
+                const result = await response.json();
+                setFilteredActivity(result);
+                setFilteredActivities([]); // Clear other results if filtering
+                console.log(result);
+            } else if (name === "Please select your activity" || !name) {
+                url = `http://localhost:8080/api/activities/availability/all?date=${date}`;
+                const response = await fetch(url);
+                const result = await response.json();
+                setFilteredActivities(result);
+                setFilteredActivity(null); // Clear specific activity if fetching all
+                console.log(result);
+            } else {
+                // Fallback case: fetch all activities if name is not set
+                const response = await fetch(url);
+                const result = await response.json();
+                setFilteredActivities(result);
+                setFilteredActivity(null);
+                console.log(result);
+            }
+          } catch (err) {
+            setError(err);
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchActivities();
+      }, [paramDate, paramName]);
 
         // Determine the URL based on name and date
         if (name && name !== "Please select your activity") {
@@ -69,10 +101,10 @@ const ActivityAvailability = ({
       <div className="activityData">
         {filteredActivities.length > 0 ? (
           filteredActivities.map((activity) => (
-            <ActivityDetails key={activity.activity_id} activity={activity} />
+            <ActivityDetails key={activity.activity_id} activity={activity} dateToBook={activityDate} />
           ))
         ) : filteredActivity ? (
-          <ActivityDetails activity={filteredActivity} />
+          <ActivityDetails activity={filteredActivity} dateToBook={activityDate} />
         ) : (
           <div>No activities found</div>
         )}

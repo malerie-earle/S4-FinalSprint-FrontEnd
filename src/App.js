@@ -7,7 +7,9 @@ import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
 import Booking from './pages/Booking';
-import Account from './pages/Account'; // Ensure this is the correct import
+
+import ActivityBooking from './pages/ActivityBooking';
+import Account from './pages/Account';
 import BookingConfirmation from './pages/BookingConfirmation';
 
 // Custom hook for fetching data
@@ -109,6 +111,7 @@ function App() {
         }
       />
 
+
       {/* Authenticated routes handled by Authenticator */}
       <Route
         path="/*"
@@ -119,6 +122,8 @@ function App() {
                 <Route path="/booking" element={<Booking />} />
                 {/* <Route path="/booking-confirmation" element={<BookingConfirmation />} /> */}
                 <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/booking" element={<Booking user = {user}/>} />
+                <Route path="/activity-booking" element={<ActivityBooking user = {user}/>} />
                 <Route path="/account" element={<Account signOut={signOut} />} />
               </Routes>
          
@@ -129,5 +134,6 @@ function App() {
     </Routes>
   );
 }
+
 
 export default App;
