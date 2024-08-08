@@ -76,7 +76,7 @@ const Home = () => {
       </div>
       <div className="wave-box">
         <div className="wave-box-text"> B R E A T H T A K I N G&nbsp;&nbsp;&nbsp;A C C O M M O D A T I O N S.</div>
-        <p>Discover our stunning accommodations at Island Serenity Resort. <br></br>Nestled in the heart of the Maldives, each room offers a blend of comfort and elegance with breathtaking views. <br></br>Relax in style with modern amenities, enjoy serene surroundings, and experience the perfect tropical getaway.</p>
+        <p>Explore peace and harmony in our stunning accommodations at Island Serenity Resort. <br></br>Nestled in the heart of the Maldives, each room offers a blend of comfort and elegance with breathtaking views. <br></br>Relax in style with modern amenities, enjoy serene surroundings, and experience the perfect tropical getaway.</p>
 
         <div className="room-box">
           <div className="overlay-text">
@@ -90,6 +90,11 @@ const Home = () => {
             <p>Experience paradise in our private ocean villa.</p>
           </div>
         </div>
+        <div className="activities-text"><p>A D V E N T U R E&nbsp;&nbsp;&nbsp;A W A I T S</p></div>
+        <div className="activities-text2"><p>Explore a world of captivating activities and enriching experiences designed to delight every guest. 
+          <br></br>From exhilarating water sports to tranquil beachside lounging and immersive local tours. 
+          At our resort, each moment is crafted to make your stay extraordinary.</p></div>
+
       </div>
     </div>
   );

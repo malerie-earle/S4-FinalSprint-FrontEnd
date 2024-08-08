@@ -10,7 +10,7 @@
 
 .overlay {
   position: absolute;
-  bottom: 15%;
+  bottom: 10%;
   left: 15%;
   width: 70%;
   max-width: 1000px;
@@ -273,7 +273,7 @@
 .wave-box {
   width: 100%;
   max-width: 100%;
-  height: 1650px;
+  height: 1675px;
   background-color: rgb(211, 250, 250);
   margin: -520px auto 20px;
   display: flex;
@@ -291,11 +291,11 @@
 .wave-box-text {
   font-family: 'DM Serif Display', serif;
   font-size: 2rem;
-  margin: 0;
+  margin-top: 150px;
   color: rgb(211, 250, 250);
   text-align: center;
   position: relative;
-  top: -30px;
+  top: -10px;
 }
 
 .room-box {
@@ -379,7 +379,7 @@ h2 {
   text-align: center;
   margin-top: 50px;
   position: relative;
-  top: -55px;
+  top: -35px;
 }
 
 .rectangle-box {
@@ -512,3 +512,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 30px;
   padding: 8px 10px;
 }
+
+.activities-text p{
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.4rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+  top: 40px;
+  }
+
+  .activities-text2 p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    position: relative;
+    top: 10px;
+    }
