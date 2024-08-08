@@ -14,21 +14,14 @@ const ActivityBooking = ({user}) => {
 
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
-  const [dateForFetch, setDate] = useState(null);
-  const [activityForFetch, setActivity] = useState(null);
-
-  useEffect(() => {
-    setDate(date)
-    setActivity(activity)
-}, [date,activity])
 
   const bookActivity = async () => {
     try{
       const response = await fetch("http://localhost:8080/api/activities/book", {
         method: 'POST',
         body: JSON.stringify({
-            user_id: 1,
-            activity_id: 5,
+            userId: 1,
+            activityId: activity.activityId,
             date: date
           }),
         headers: {
