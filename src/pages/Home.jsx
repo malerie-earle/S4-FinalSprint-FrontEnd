@@ -16,7 +16,39 @@ const Home = () => {
         </div>
       </div>
       <div className="homepage-content"></div>
-      <div className="rectangle-box"></div> {/* New rectangle box */}
+      <div className="rectangle-box">
+        <div className="booking-container">
+          <form className="booking-form">
+            <div>
+              <label htmlFor="check-in">Check-in</label>
+              <input type="" id="check-in" placeholder="Check-in date" />
+            </div>
+            <div>
+              <label htmlFor="check-out">Check-out</label>
+              <input type="" id="check-out" placeholder="Check-out date" />
+            </div>
+            <div>
+              <label htmlFor="adults">Adults</label>
+              <select id="adults">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="children">Children</label>
+              <select id="children">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <button type="submit">E X P L O R E</button>
+          </form>
+        </div>
+      </div>
       <div className="rectangle-box2">
         <h2 className="highlighted-word">Welcome.</h2>
         <p className="rectangle-box2-text">Experience serenity in the pristine beauty of the Maldives.</p>
@@ -41,7 +73,7 @@ const Home = () => {
           stunning and the food was fantastic. Perfect for our honeymoon."</div>
         <div className="testimonials3">"A relaxing vacation spot with pristine beaches and clear waters.
           The rooms were beautiful and the staff was friendly. Highly recommend!"</div>
-        </div>
+      </div>
       <div className="wave-box">
         <div className="wave-box-text"> B R E A T H T A K I N G&nbsp;&nbsp;&nbsp;A C C O M M O D A T I O N S.</div>
         <p>Discover our stunning accommodations at Island Serenity Resort. <br></br>Nestled in the heart of the Maldives, each room offers a blend of comfort and elegance with breathtaking views. <br></br>Relax in style with modern amenities, enjoy serene surroundings, and experience the perfect tropical getaway.</p>
