@@ -1,35 +1,38 @@
-// src/hooks/useUserDetails.js
-import { useState, useEffect } from 'react';
-import { fetchAuthSession } from '@aws-amplify/auth';
+// import { useState, useEffect } from 'react';
+// import { Auth } from 'aws-amplify';
 
-const useUserDetails = () => {
-  const [userDetails, setUserDetails] = useState(null);
-  const [loading, setLoading] = useState(true);
+// const useUserDetails = () => {
+//   const [userDetails, setUserDetails] = useState(null);
+//   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      try {
-        const session = await fetchAuthSession();
-        const user = session?.user;
-        if (user) {
-          setUserDetails({
-            FName: user.attributes?.given_name || 'N/A',
-            LName: user.attributes?.family_name || 'N/A',
-            Email: user.attributes?.email || 'N/A',
-            Username: user.username || 'N/A',
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching user details:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+//   useEffect(() => {
+//     const fetchUserDetails = async () => {
+//       try {
+//         // Fetch the current authenticated session
+//         const session = await Auth.currentSession();
+//         const user = session?.getIdToken()?.payload;
 
-    fetchUserDetails();
-  }, []);
+//         if (user) {
+//           setUserDetails({
+//             FName: user.given_name || 'N/A',
+//             LName: user.family_name || 'N/A',
+//             Email: user.email || 'N/A',
+//             Username: user.sub || 'N/A',
+//           });
+//         } else {
+//           console.warn('No user information available in session.');
+//         }
+//       } catch (error) {
+//         console.error('Error fetching user details:', error);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
 
-  return { userDetails, loading };
-};
+//     fetchUserDetails();
+//   }, []);
 
-export default useUserDetails;
+//   return { userDetails, loading };
+// };
+
+// export default useUserDetails;

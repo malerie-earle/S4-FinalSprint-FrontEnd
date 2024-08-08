@@ -5,9 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Amplify } from 'aws-amplify';
 import { BrowserRouter } from 'react-router-dom'; 
-import awsmobile from './aws-exports'; 
+import awsconfig from './aws-exports'; 
 
-Amplify.configure(awsmobile);
+Amplify.configure(awsconfig);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

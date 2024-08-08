@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
@@ -7,16 +7,16 @@ import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
 import Booking from './pages/Booking';
-import Account from './pages/Account';
+import Account from './pages/Account'; // Ensure this is the correct import
 import BookingConfirmation from './pages/BookingConfirmation';
 
 // Custom hook for fetching data
 function useFetchData(url) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
@@ -54,11 +54,11 @@ function App() {
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
 
   // States
-  const [activityDate, setActivityDate] = useState(getToday());
-  const [activityName, setActivityName] = useState("Please select your activity");
-  const [checkInDate, setCheckInDate] = useState(null);
-  const [checkOutDate, setCheckOutDate] = useState(null);
-  const [guests, setGuests] = useState('');
+  const [activityDate, setActivityDate] = React.useState(getToday());
+  const [activityName, setActivityName] = React.useState("Please select your activity");
+  const [checkInDate, setCheckInDate] = React.useState(null);
+  const [checkOutDate, setCheckOutDate] = React.useState(null);
+  const [guests, setGuests] = React.useState('');
 
   return (
     <Routes>
@@ -114,19 +114,16 @@ function App() {
         path="/*"
         element={
           <Authenticator>
-            {({ signOut, user }) => (
-              user ? (
-                <Routes>
-                  <Route path="/booking" element={<Booking />} />
-                  <Route path="/account" element={<Account signOut={signOut} />} />
-                  <Route path="/booking-confirmation" element={<BookingConfirmation />} />
-                  <Route path="*" element={<Home />} />
-                </Routes>
-              ) : (
-                <Home />
-              )
-            )}
-          </Authenticator>
+          {({ signOut, user }) => (
+              <Routes>
+                <Route path="/booking" element={<Booking />} />
+                {/* <Route path="/booking-confirmation" element={<BookingConfirmation />} /> */}
+                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/account" element={<Account signOut={signOut} />} />
+              </Routes>
+         
+          )}
+        </Authenticator>
         }
       />
     </Routes>
