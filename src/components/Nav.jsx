@@ -24,11 +24,11 @@ const Nav = () => {
         <div className="box2">
             <div className="phoneAndBook">
                 <p>1-800-333-1111</p>
-                <Link id="bookYourStay">Book your stay <img src={ForwardArrow} alt="Forward Arrow" className="forwardArrow"/></Link>
+                <Link to="/booking" id="bookYourStay">Book your stay <img src={ForwardArrow} alt="Forward Arrow" className="forwardArrow"/></Link>
             </div>
             <div className="nav2">
                 <Link to="/activity-availability" className="navLinks2" id="activities">ACTIVITIES</Link>
-                <Link className="navLinks2" id="dining">ACCOUNT</Link>
+                <Link to="/account" className="navLinks2" id="dining">ACCOUNT</Link>
             </div>
         </div>
 
