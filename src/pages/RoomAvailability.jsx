@@ -20,20 +20,24 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
           try {
             const checkIn = paramCheckIn || checkInDate;
             const checkOut = paramCheckOut || checkOutDate;
+            const occupancy = paramOccupancy || guests;
 
 
             let url = 'http://localhost:8080/api/rooms';
 
             // Fetch filtered rooms based on dates, guests, and type
             if (type && type !== "Select your preferred accommodation") {
-                url = `http://localhost:8080/api/rooms/available?start=${checkIn}&end=${checkOut}&occupancy=${guests}&type=${type}`;
+                // http://localhost:8080/api/rooms/availability/occupancy?startDate=2024-03-14&endDate=2024-03-19&requestedOccupancy=3
+                // api/rooms/availability/occupancy/type
+                url = `http://localhost:8080/api/rooms/availability/occupancy/type?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${paramOccupancy}&roomType=${paramType}`;
                 const response = await fetch(url);
                 const result = await response.json();
                 setFilteredRoom(result);
                 setFilteredRooms([]); // Clear other results if filtering
                 console.log(result);
             } else if (type === "Select your preferred accommodation" || !type) {
-                url = `http://localhost:8080/api/rooms`;
+                // http://localhost:8080/api/rooms/availability/occupancy?startDate=2024-03-14&endDate=2024-03-19&requestedOccupancy=3
+                url = `http://localhost:8080/api/rooms/availability/occupancy?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}`;
                 const response = await fetch(url);
                 const result = await response.json();
                 setFilteredRooms(result);

@@ -20,6 +20,9 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
     const handleGuestChange = (event) => {
         setGuests(event.target.value);
     }
+    const handleTypeChange = (event) =>{
+        setType(event.target.value)
+    }
 
     const handleSearch = (event) => {
         event.preventDefault();
@@ -85,7 +88,7 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                     </div>
                     <div className="type">
                         <label htmlFor="type">TYPE: </label>
-                        <select name="type" className="select-room-type">
+                        <select name="type" className="select-room-type" onChange={handleTypeChange}>
                             <option>Select your preferred accommodation</option>
                             <option value="room">Room</option>
                             <option value="suite">Suite</option>

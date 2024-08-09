@@ -58,6 +58,7 @@ function App() {
   const [checkInDate, setCheckInDate] = React.useState(getToday());
   const [checkOutDate, setCheckOutDate] = React.useState();
   const [guests, setGuests] = React.useState('');
+  const [type, setType] = React.useState("Select your preferred accommodation")
   const [user, setUser] = React.useState(null);
 
   const handleAuthStateChange = (authUser) => {
@@ -71,6 +72,7 @@ function App() {
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Home />} />
+        
         <Route
           path="/room-availability"
           element={
@@ -81,12 +83,34 @@ function App() {
               setCheckOutDate={setCheckOutDate}
               guests={guests}
               setGuests={setGuests}
+              type={type}
+              setType={setType}
               allRoomData={allRoomData}
               allRoomLoading={allRoomLoading}
               allRoomError={allRoomError}
             />
           }
         />
+
+        <Route
+          path={`/room-availability/:checkInDate/:checkOutDate/:guests/:type`}
+          element={
+            <RoomAvailability
+              checkInDate={checkInDate}
+              setCheckInDate={setCheckInDate}
+              checkOutDate={checkOutDate}
+              setCheckOutDate={setCheckOutDate}
+              guests={guests}
+              setGuests={setGuests}
+              type={type}
+              setType={setType}
+              allRoomData={allRoomData}
+              allRoomLoading={allRoomLoading}
+              allRoomError={allRoomError}
+            />
+          }
+        />
+
         <Route
           path="/activity-availability"
           element={
@@ -101,6 +125,21 @@ function App() {
             />
           }
         />
+
+      <Route
+        path={`/activity-availability/:activityDate/:activityName`}
+        element={
+          <ActivityAvailability
+            activityDate={activityDate}
+            setActivityDate={setActivityDate}
+            activityName={activityName}
+            setActivityName={setActivityName}
+            allActivityData={allActivityData}
+            allActivityLoading={allActivityLoading}
+            allActivityError={allActivityError}
+          />
+        }
+      />
 
         {/* Protected routes */}
         <Route
@@ -136,7 +175,7 @@ function App() {
             </Authenticator>
           }
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </>
   );
