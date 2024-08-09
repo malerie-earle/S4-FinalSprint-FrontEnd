@@ -28,7 +28,7 @@ const Nav = ({ isAuthenticated, handleSignOut }) => {
                     {isAuthenticated ? (
                         <span
                             className="navLinks3"
-                            onClick={signOut}
+                            onClick={handleSignOut}
                             style={{ cursor: 'pointer' }}
                         >
                             Sign Out

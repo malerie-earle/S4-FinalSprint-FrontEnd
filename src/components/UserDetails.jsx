@@ -49,12 +49,7 @@ const UserDetails = ({ onFetchUserDetails }) => {
   }
 
   return (
-    <div>
-      <p>Username: {userDetails.username || 'N/A'}</p>
-      <p>First Name: {userDetails.firstName || 'N/A'}</p>
-      <p>Last Name: {userDetails.lastName || 'N/A'}</p>
-      <p>Email: {userDetails.email || 'N/A'}</p>
-    </div>
+null
   );
 };
 
