@@ -7,11 +7,9 @@ import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
 import RoomBooking from './pages/RoomBooking';
-
 import ActivityBooking from './pages/ActivityBooking';
 import Account from './pages/Account';
-import BookingConfirmation from './pages/BookingConfirmation';
-import Nav from './components/Nav'; // Import Nav component
+import Nav from './components/Nav';
 
 // Custom hook for fetching data
 function useFetchData(url) {
@@ -127,7 +125,7 @@ function App() {
             <Authenticator>
               {({ signOut, user: authUser }) => {
                 handleAuthStateChange(authUser);
-                return <Booking user={authUser} />;
+                return <RoomBooking user={authUser} />;
               }}
             </Authenticator>
           }
@@ -157,27 +155,6 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
-
-      {/* Authenticated routes handled by Authenticator */}
-      <Route
-        path="/*"
-        element={
-          <Authenticator>
-          {({ signOut, user }) => (
-              <Routes>
-                <Route path="/booking" element={<RoomBooking />} />
-                {/* <Route path="/booking-confirmation" element={<BookingConfirmation />} /> */}
-                <Route path="*" element={<Navigate to="/" />} />
-                <Route path="/room-booking" element={<RoomBooking user = {user}/>} />
-                <Route path="/activity-booking" element={<ActivityBooking user = {user}/>} />
-                <Route path="/account" element={<Account signOut={signOut} />} />
-              </Routes>
-         
-          )}
-        </Authenticator>
-        }
-      />
-    </Routes>
   );
 }
 

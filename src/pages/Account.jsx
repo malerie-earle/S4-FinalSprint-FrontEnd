@@ -1,20 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UserDetails from '../components/UserDetails';
-import Nav from '../components/Nav';
+import RoomBookings from '../components/RoomBookings';
+import ActivityBookings from '../components/ActivityBookings';
 
 const Account = ({ signOut }) => {
+  const [userDetails, setUserDetails] = useState(null);
+
+  const handleFetchUserDetails = (details) => {
+    setUserDetails(details);
+  };
+<UserDetails onFetchUserDetails={handleFetchUserDetails} />
   return (
     <>
-
-    <div>
-      <h1>Account</h1>
       
-      {/* UserDetails component handles fetching and displaying user details */}
-      <UserDetails signOut={signOut} />
+      <div>
+        {userDetails && (
+          <>
+            <h1>Hi, {userDetails.firstName} {userDetails.lastName}!</h1>
+            <h2>Bookings:</h2>
+            <h3>Rooms:</h3>
+            <RoomBookings />
+            <h3>Activities:</h3>
+            <ActivityBookings />
 
-      {/* The sign out button is provided by UserDetails, but you can add another here if needed */}
-      <button onClick={signOut}>Sign Out</button>
-    </div>
+            <button onClick={signOut}>Sign Out</button>
+          </>
+        )}
+      </div>
     </>
   );
 };
