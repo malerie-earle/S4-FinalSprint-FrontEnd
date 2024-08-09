@@ -1,55 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import useFetch from '../hooks/useFetch'; // Make sure to adjust the path according to your file structure
-import { getCurrentUser } from 'aws-amplify/auth';
+import React, { useState } from 'react';
+import UserDetails from '../components/UserDetails';
+import RoomBookings from '../components/RoomBookings';
+import ActivityBookings from '../components/ActivityBookings';
+import '../styles/account.css';
 
-const Account = ({ signOut }) => {
+const Account = ({ signOut, user }) => {
+  const [userDetails, setUserDetails] = useState(null);
   const [username, setUsername] = useState(null);
-  const [fetchUrl, setFetchUrl] = useState(null);
 
-  // Fetch the username when the component mounts
-  useEffect(() => {
-    const fetchCurrentUser = async () => {
-      try {
-        const currentUser = await getCurrentUser();
-        setUsername(currentUser.username);
-      } catch (err) {
-        console.error('Error fetching current user:', err);
-      }
-    };
-
-    fetchCurrentUser();
-  }, []);
-
-  // Set the URL for the API call based on the username
-  useEffect(() => {
-    if (username) {
-      setFetchUrl(`http://localhost:8080/api/users/${username}`);
-    }
-  }, [username]);
-
-  // Use the custom hook to fetch user data
-  const { data, loading, error } = useFetch(fetchUrl);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error fetching data: {error.message}</div>;
-  }
-
-  if (!data) {
-    return <div>No user data available.</div>;
-  }
+  const handleFetchUserDetails = (details) => {
+    setUsername(details.username);
+    setUserDetails(details);
+  };
 
   return (
-    <div>
-      <p>First Name: {data.given_name || 'N/A'}</p>
-      <p>Last Name: {data.family_name || 'N/A'}</p>
-      <p>Email: {data.email || 'N/A'}</p>
-      <p>Username: {data.username || 'N/A'}</p>
-      <button onClick={signOut}>Sign Out</button>
-    </div>
+    <>
+      <UserDetails user={user} onFetchUserDetails={handleFetchUserDetails} />
+      <div className = "mainDiv">
+        {userDetails && (
+          <>
+            <h1>Hi, {userDetails.firstName} {userDetails.lastName}!</h1>
+            <h2>Account Details:</h2>
+            <p>Username: {username}</p>
+            <p>Email: {userDetails.email}</p>
+
+            <h2>Bookings:</h2>
+
+            <div className="roomDiv">
+              <h3>Rooms:</h3>
+              <RoomBookings />
+            </div>
+
+            <div className="activityDiv">
+              <h3>Activities:</h3>
+              <ActivityBookings />
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 };
 

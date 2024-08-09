@@ -63,7 +63,6 @@ const ActivityAvailability = ({
 
   return (
     <div>
-      <Nav />
       <ActivitySearchBar
         activityDate={activityDate}
         setActivityDate={setActivityDate}

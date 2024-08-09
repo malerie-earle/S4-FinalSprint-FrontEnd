@@ -467,7 +467,7 @@ h2 {
   transform: translateY(0);
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+.custom-date-input input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   position: absolute;
   right: 10px;
