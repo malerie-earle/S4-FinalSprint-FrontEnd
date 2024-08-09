@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
@@ -13,11 +13,11 @@ import Nav from './components/Nav';
 
 // Custom hook for fetching data
 function useFetchData(url) {
-  const [data, setData] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
@@ -50,28 +50,26 @@ function getToday() {
 }
 
 function App() {
-  // Fetch data
   const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData('http://localhost:8080/api/activities');
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
 
-  // States
   const [activityDate, setActivityDate] = React.useState(getToday());
   const [activityName, setActivityName] = React.useState("Please select your activity");
   const [checkInDate, setCheckInDate] = React.useState(null);
   const [checkOutDate, setCheckOutDate] = React.useState(null);
   const [guests, setGuests] = React.useState('');
-  const [user, setUser] = React.useState(null); // State to manage user authentication
+  const [user, setUser] = React.useState(null);
 
-  // Function to handle authentication state changes
   const handleAuthStateChange = (authUser) => {
     setUser(authUser);
   };
+  
 
   return (
     <>
       <Nav isAuthenticated={!!user} handleSignOut={() => setUser(null)} />
       <Routes>
-        {/* Public routes accessible without authentication */}
+        {/* Public routes */}
         <Route path="/" element={<Home />} />
         <Route
           path="/room-availability"
@@ -91,20 +89,6 @@ function App() {
         />
         <Route
           path="/activity-availability"
-          element={
-            <ActivityAvailability
-              activityDate={activityDate}
-              setActivityDate={setActivityDate}
-              activityName={activityName}
-              setActivityName={setActivityName}
-              allActivityData={allActivityData}
-              allActivityLoading={allActivityLoading}
-              allActivityError={allActivityError}
-            />
-          }
-        />
-        <Route
-          path={`/activity-availability/:activityDate/:activityName`}
           element={
             <ActivityAvailability
               activityDate={activityDate}
@@ -147,7 +131,7 @@ function App() {
             <Authenticator>
               {({ signOut, user: authUser }) => {
                 handleAuthStateChange(authUser);
-                return <Account signOut={signOut} />;
+                return <Account signOut={signOut} user={authUser} />;
               }}
             </Authenticator>
           }
