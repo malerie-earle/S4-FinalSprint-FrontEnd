@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import { useEffect } from 'react';
 
 import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
@@ -53,92 +54,68 @@ function App() {
   const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData('http://localhost:8080/api/activities');
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
 
-  const [activityDate, setActivityDate] = React.useState(getToday());
-  const [activityName, setActivityName] = React.useState("Please select your activity");
-  const [checkInDate, setCheckInDate] = React.useState(getToday());
-  const [checkOutDate, setCheckOutDate] = React.useState();
-  const [guests, setGuests] = React.useState('');
-  const [user, setUser] = React.useState(null);
-
-  const handleAuthStateChange = (authUser) => {
-    setUser(authUser);
-  };
-  
+  const [activityDate, setActivityDate] = useState(getToday());
+  const [activityName, setActivityName] = useState("Please select your activity");
+  const [checkInDate, setCheckInDate] = useState(getToday());
+  const [checkOutDate, setCheckOutDate] = useState();
+  const [guests, setGuests] = useState('');
 
   return (
-    <>
-      <Nav isAuthenticated={!!user} handleSignOut={() => setUser(null)} />
-      <Routes>
-        {/* Public routes */}
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/room-availability"
-          element={
-            <RoomAvailability
-              checkInDate={checkInDate}
-              setCheckInDate={setCheckInDate}
-              checkOutDate={checkOutDate}
-              setCheckOutDate={setCheckOutDate}
-              guests={guests}
-              setGuests={setGuests}
-              allRoomData={allRoomData}
-              allRoomLoading={allRoomLoading}
-              allRoomError={allRoomError}
+    <Authenticator>
+      {({ signOut, user }) => (
+        <>
+          <Nav isAuthenticated={!!user} handleSignOut={signOut} />
+          <Routes>
+            {/* Public routes */}
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/room-availability"
+              element={
+                <RoomAvailability
+                  checkInDate={checkInDate}
+                  setCheckInDate={setCheckInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckOutDate={setCheckOutDate}
+                  guests={guests}
+                  setGuests={setGuests}
+                  allRoomData={allRoomData}
+                  allRoomLoading={allRoomLoading}
+                  allRoomError={allRoomError}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/activity-availability"
-          element={
-            <ActivityAvailability
-              activityDate={activityDate}
-              setActivityDate={setActivityDate}
-              activityName={activityName}
-              setActivityName={setActivityName}
-              allActivityData={allActivityData}
-              allActivityLoading={allActivityLoading}
-              allActivityError={allActivityError}
+            <Route
+              path="/activity-availability"
+              element={
+                <ActivityAvailability
+                  activityDate={activityDate}
+                  setActivityDate={setActivityDate}
+                  activityName={activityName}
+                  setActivityName={setActivityName}
+                  allActivityData={allActivityData}
+                  allActivityLoading={allActivityLoading}
+                  allActivityError={allActivityError}
+                />
+              }
             />
-          }
-        />
 
-        {/* Protected routes */}
-        <Route
-          path="/booking"
-          element={
-            <Authenticator>
-              {({ signOut, user: authUser }) => {
-                handleAuthStateChange(authUser);
-                return <RoomBooking user={authUser} />;
-              }}
-            </Authenticator>
-          }
-        />
-        <Route
-          path="/activity-booking"
-          element={
-            <Authenticator>
-              {({ signOut, user: authUser }) => {
-                handleAuthStateChange(authUser);
-                return <ActivityBooking user={authUser} />;
-              }}
-            </Authenticator>
-          }
-        />
-        <Route
-          path="/account"
-          element={
-            <Authenticator>
-              {({ signOut, user: authUser }) => {
-                handleAuthStateChange(authUser);
-                return <Account signOut={signOut} user={authUser} />;
-              }}
-            </Authenticator>
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </>
+            {/* Protected routes */}
+            <Route
+              path="/booking"
+              element={<RoomBooking user={user} />}
+            />
+            <Route
+              path="/activity-booking"
+              element={<ActivityBooking user={user} />}
+            />
+            <Route
+              path="/account"
+              element={<Account signOut={signOut} user={user} />}
+            />
+          </Routes>
+        </>
+      )}
+    </Authenticator>
   );
 }
 
