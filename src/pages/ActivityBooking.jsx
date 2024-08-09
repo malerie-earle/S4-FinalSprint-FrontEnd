@@ -13,6 +13,7 @@ const ActivityBooking = ({user}) => {
   console.log(activity.activityId);
   console.log(user);
 
+
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
 
@@ -21,7 +22,7 @@ const ActivityBooking = ({user}) => {
       const response = await fetch("http://localhost:8080/api/activities/book", {
         method: 'POST',
         body: JSON.stringify({
-            userId: 1,
+            userName: user.username,
             activityId: activity.activityId,
             date: date
           }),
