@@ -91,8 +91,7 @@ const Home = () => {
         <div className="activities-text2"><p>Explore a world of captivating activities and enriching experiences designed to delight every guest. 
           <br></br>From exhilarating water sports to tranquil beachside lounging and immersive local tours. 
           At our resort, each moment is crafted to make your stay extraordinary.</p></div>
-
-      </div>
+       </div>
       <div className="activities-box"></div>
       <Footer />
     </div>

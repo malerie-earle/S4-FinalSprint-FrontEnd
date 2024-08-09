@@ -501,7 +501,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: rgb(227, 114, 127);
   color: rgb(255, 255, 255);
   border: 1px solid rgb(248, 155, 166);
-  border-radius: 30px;
   padding: 8px 10px;
 }
 
@@ -529,6 +528,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 1000px;
   background-color: rgb(246, 167, 176);
   position: relative;
-  top: -520px;
   z-index: 0; /* Lower z-index */
 }
