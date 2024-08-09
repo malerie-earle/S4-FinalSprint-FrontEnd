@@ -10,31 +10,38 @@ import RoomBooking from './pages/RoomBooking';
 import ActivityBooking from './pages/ActivityBooking';
 import Account from './pages/Account';
 import Nav from './components/Nav';
+import useFetch from './hooks/useFetch';
 
-// Custom hook for fetching data
-function useFetchData(url) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [url]);
-
-  return { data, loading, error };
-}
+  // Custom hook for fetching data
+  function useFetchData(url) {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
+          const result = await response.json();
+          console.log('Fetched data:', result); 
+          setData(result);
+        } catch (error) {
+          console.error('Fetch error:', error);
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, [url]);
+  
+    return { data, loading, error };
+  }
 
 // Function to get today's date
 function getToday() {
@@ -52,12 +59,14 @@ function getToday() {
 function App() {
   const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData('http://localhost:8080/api/activities');
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
+  
+  console.log(allRoomData)
 
   const [activityDate, setActivityDate] = React.useState(getToday());
   const [activityName, setActivityName] = React.useState("Please select your activity");
   const [checkInDate, setCheckInDate] = React.useState(getToday());
-  const [checkOutDate, setCheckOutDate] = React.useState();
-  const [guests, setGuests] = React.useState('');
+  const [checkOutDate, setCheckOutDate] = React.useState(null);
+  const [guests, setGuests] = React.useState(null);
   const [type, setType] = React.useState("Select your preferred accommodation")
   const [user, setUser] = React.useState(null);
 
@@ -93,7 +102,7 @@ function App() {
         />
 
         <Route
-          path={`/room-availability/:checkInDate/:checkOutDate/:guests/:type`}
+          path={`/room-availability/:checkInDate/:checkOutDate/:requestedOccupancy/:roomType`}
           element={
             <RoomAvailability
               checkInDate={checkInDate}
