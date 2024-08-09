@@ -1,6 +1,6 @@
 import "../styles/room-availability.css"
 import RoomDetails from "../components/RoomDetails";
-import Nav from "../components/Nav"
+// import Nav from "../components/Nav"
 import RoomSearchBar from "../components/RoomSearchBar"
 import { useParams } from "react-router-dom";
 import { useState, useEffect} from "react";
@@ -60,8 +60,6 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
 
     return (
     <div>
-
-        <Nav/>
 
         <RoomSearchBar checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests} type={type} setType={setType} allRoomData={allRoomData}/>
 
