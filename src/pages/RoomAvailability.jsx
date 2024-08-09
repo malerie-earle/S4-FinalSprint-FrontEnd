@@ -1,6 +1,6 @@
 import "../styles/room-availability.css"
 import RoomDetails from "../components/RoomDetails";
-import Nav from "../components/Nav"
+// import Nav from "../components/Nav"
 import RoomSearchBar from "../components/RoomSearchBar"
 import { useParams } from "react-router-dom";
 import { useState, useEffect} from "react";
