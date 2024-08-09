@@ -3,7 +3,7 @@ import Nav from '../components/Nav';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Booking = ({user}) => {
+const RoomBooking = ({user}) => {
   console.log(user);
   //fetch params from last page here: TODO
 
@@ -87,4 +87,4 @@ const Booking = ({user}) => {
 }
   
 
-export default Booking;
+export default RoomBooking;

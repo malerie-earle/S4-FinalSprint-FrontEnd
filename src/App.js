@@ -6,7 +6,8 @@ import '@aws-amplify/ui-react/styles.css';
 import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
-import Booking from './pages/Booking';
+import RoomBooking from './pages/RoomBooking';
+
 import ActivityBooking from './pages/ActivityBooking';
 import Account from './pages/Account';
 import BookingConfirmation from './pages/BookingConfirmation';
@@ -156,6 +157,27 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
+
+      {/* Authenticated routes handled by Authenticator */}
+      <Route
+        path="/*"
+        element={
+          <Authenticator>
+          {({ signOut, user }) => (
+              <Routes>
+                <Route path="/booking" element={<RoomBooking />} />
+                {/* <Route path="/booking-confirmation" element={<BookingConfirmation />} /> */}
+                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/room-booking" element={<RoomBooking user = {user}/>} />
+                <Route path="/activity-booking" element={<ActivityBooking user = {user}/>} />
+                <Route path="/account" element={<Account signOut={signOut} />} />
+              </Routes>
+         
+          )}
+        </Authenticator>
+        }
+      />
+    </Routes>
   );
 }
 

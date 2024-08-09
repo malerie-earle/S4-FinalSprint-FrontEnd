@@ -140,6 +140,8 @@ a:visited{
     width: 100%;
 }
 .forwardArrow{
-    width: 20px;
+    width: 25px;
+    position: relative;
+    right: -3px;
 }
 
