@@ -13,7 +13,7 @@ const RoomDetails = ({room}) => {
   imagesList.push(image1);
   imagesList.push(image2);
   imagesList.push(image3);
-  console.log(imagesList);
+  // console.log("Images List: " + imagesList);
 
 
   return (

@@ -6,38 +6,44 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
     
     const navigate = useNavigate();
 
-    const [error, setError] = useState('');
+    const [dateError, setDateError] = useState(null);
+    const [guestError, setGuestError] = useState(null);
 
     const handleInputChange = (e) => {
         // Update state based on input changes
         if (e.target.name === 'checkin-date') {
-          setCheckInDate(e.target.value);
+            setCheckInDate(e.target.value);
         } else if (e.target.name === 'checkout-date') {
-          setCheckOutDate(e.target.value);
+            setCheckOutDate(e.target.value);
+            setDateError(null);
+        } else if(e.target.name === "guests"){
+            setGuests(e.target.value);
+            setGuestError(null);
         }
     };
 
-    const handleGuestChange = (event) => {
-        setGuests(event.target.value);
+    const handleTypeChange = (event) =>{
+        setType(event.target.value)
     }
 
     const handleSearch = (event) => {
         event.preventDefault();
 
         if (!checkInDate || !checkOutDate) {
-            setError('Both check-in and check-out dates are required.');
+            setDateError('Both check-in and check-out dates are required.');
             return;
         }
         if (!guests){
-            setError("Please select the number of guests.")
+            setGuestError("Please select the number of guests.")
             return;
         }
 
         // Example: Log the dates to the console or send them to an API
         console.log(`Check-In Date: ${checkInDate}`);
         console.log(`Check-Out Date: ${checkOutDate}`);
-        // Clear error and reset form or redirect as needed
-        setError('');
+        // // Clear error and reset form or redirect as needed
+        setGuestError('');
+        setDateError('');
 
          // Construct URL based on the selected filters
          let url = `/room-availability/${checkInDate}/${checkOutDate}/${guests}/`;
@@ -81,11 +87,11 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                     </div>
                     <div className="guests">
                         <label htmlFor="guests">GUESTS: </label>
-                        <input type="number" name="guests" id="guests" value={guests} onChange={handleGuestChange}/>
+                        <input type="number" name="guests" id="guests" value={guests} onChange={handleInputChange}/>
                     </div>
                     <div className="type">
                         <label htmlFor="type">TYPE: </label>
-                        <select name="type" className="select-room-type">
+                        <select name="type" className="select-room-type" onChange={handleTypeChange}>
                             <option>Select your preferred accommodation</option>
                             <option value="room">Room</option>
                             <option value="suite">Suite</option>
@@ -97,7 +103,8 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                     </div>
                 </div>
 
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+                {dateError && <p style={{ color: 'red' }}>{dateError}</p>}
+                {guestError && <p style={{ color: 'red' }}>{guestError}</p>}
 
                 <button type="submit">SEARCH</button>
 
