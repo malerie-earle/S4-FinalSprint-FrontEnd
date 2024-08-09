@@ -61,9 +61,13 @@ const RoomAvailability = ({checkInDate, setCheckInDate, checkOutDate, setCheckOu
     return (
     <div>
 
+<<<<<<< HEAD
+        <RoomSearchBar checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests} allRoomData={allRoomData}/>
+=======
         <Nav/>
 
         <RoomSearchBar checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate} guests={guests} setGuests={setGuests} type={type} setType={setType} allRoomData={allRoomData}/>
+>>>>>>> 3e90e5917d78e83bca15ee7e75ef83254b1d930a
 
         <div className="roomData">
             {filteredRooms.length > 1? (

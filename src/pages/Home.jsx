@@ -7,7 +7,6 @@ import '../styles/index.css';
 const Home = () => {
   return (
     <div>
-      <Nav />
       <Slideshow />
       <div className="overlay">
         <p>I S L A N D&nbsp;&nbsp;&nbsp;S E R E N I T Y</p>
