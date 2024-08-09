@@ -59,7 +59,7 @@ function App() {
   const [activityDate, setActivityDate] = React.useState(getToday());
   const [activityName, setActivityName] = React.useState("Please select your activity");
   const [checkInDate, setCheckInDate] = React.useState(getToday());
-  const [checkOutDate, setCheckOutDate] = React.useState(null);
+  const [checkOutDate, setCheckOutDate] = React.useState();
   const [guests, setGuests] = React.useState('');
 
   return (
