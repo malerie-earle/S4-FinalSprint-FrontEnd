@@ -29,23 +29,19 @@ const Home = () => {
               <input type="date" id="check-out" placeholder="Check-out date" />
             </div>
             <div>
-              <label htmlFor="adults">Adults</label>
+              <label htmlFor="guests">Guests</label>
               <select id="adults">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="4">5</option>
+                <option value="4">6</option>
+
               </select>
             </div>
-            <div>
-              <label htmlFor="children">Children</label>
-              <select id="children">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
+          
+          
             <button type="submit">E X P L O R E</button>
           </form>
         </div>
