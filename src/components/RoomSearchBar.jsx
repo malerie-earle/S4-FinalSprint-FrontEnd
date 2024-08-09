@@ -1,17 +1,20 @@
 import { useState } from "react";
 import "../styles/activity-room-search-bars.css"
+import { useNavigate } from "react-router-dom";
 
-const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests, allRoomData}) => {
+const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDate, guests, setGuests, type, setType, allRoomData}) => {
     
+    const navigate = useNavigate();
 
     const [error, setError] = useState('');
 
-    const handleCheckInChange = (event) => {
-        setCheckInDate(event.target.value)
-    }
-    
-    const handleCheckOutChange = (event) => {
-    setCheckOutDate(event.target.value);
+    const handleInputChange = (e) => {
+        // Update state based on input changes
+        if (e.target.name === 'checkin-date') {
+          setCheckInDate(e.target.value);
+        } else if (e.target.name === 'checkout-date') {
+          setCheckOutDate(e.target.value);
+        }
     };
 
     const handleGuestChange = (event) => {
@@ -35,10 +38,17 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
         console.log(`Check-Out Date: ${checkOutDate}`);
         // Clear error and reset form or redirect as needed
         setError('');
-        // Perform any further actions such as API calls or state updates
+
+         // Construct URL based on the selected filters
+         let url = `/room-availability/${checkInDate}/${checkOutDate}/${guests}/`;
+         if (type && type !== "") {
+             url += `${type}`;
+         }
+     
+         // Navigate to the search results page with selected parameters
+         navigate(url);
     }
   
-
     return (
         <>
             <div className="search-header">
@@ -56,7 +66,7 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                         name="checkin-date" 
                         id="checkin-date" 
                         value={checkInDate}
-                        onChange={handleCheckInChange}
+                        onChange={handleInputChange}
                         />
                     </div>
                     <div className="checkin-checkout-boxes">
@@ -66,7 +76,7 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                             name="checkout-date" 
                             id="checkout-date" 
                             value={checkOutDate}
-                            onChange={handleCheckOutChange}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className="guests">
