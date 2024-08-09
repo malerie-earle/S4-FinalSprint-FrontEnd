@@ -152,7 +152,7 @@ function App() {
 
         {/* Protected routes */}
         <Route
-          path="/booking"
+          path="/room-booking"
           element={
             <Authenticator>
               {({ signOut, user: authUser }) => {

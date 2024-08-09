@@ -3,9 +3,10 @@ import "../styles/room-details.css"
 import person from "../images/person.png"
 import bed from "../images/bed.png"
 // import { useState } from 'react';
+import { Link } from "react-router-dom";
 import RoomImageSlideshow from "./RoomImageSlideshow"
 
-const RoomDetails = ({room}) => {
+const RoomDetails = ({room, start, end}) => {
   const image1 = room.image1;
   const image2 = room.image2;
   const image3 = room.image3;
@@ -28,7 +29,9 @@ const RoomDetails = ({room}) => {
                 <p className="symbols-box"><img src={person} alt="Guests" className="symbols"/>{room.occupancy}</p>
                 <p className="symbols-box"><img src={bed} alt="Beds" className="symbols"/>{room.beds}</p>
               </div>
-              <button type="submit">BOOK NOW</button>
+              <Link to='/room-booking' state={{start: start, end: end, room: room}}>
+                <button type="submit">BOOK NOW</button>
+              </Link>
           </div>
         
         </form>
