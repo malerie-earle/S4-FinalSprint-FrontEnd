@@ -125,9 +125,9 @@ const RoomAvailability = ({
 
         <div className="roomData">
             {filteredRooms.length>1? filteredRooms.map((room) => (
-                <RoomDetails key={room.room_id} room={room} />
+                <RoomDetails key={room.room_id} room={room} start={checkOutDate} end={checkInDate} />
             )) : (
-                <RoomDetails room={filteredRooms} />
+                <RoomDetails room={filteredRooms} start={checkOutDate} end={checkInDate}/>
             )}
         </div>
 
