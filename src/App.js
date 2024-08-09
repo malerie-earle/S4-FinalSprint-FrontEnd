@@ -40,6 +40,10 @@ function App() {
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
   const [activityDate, setActivityDate] = useState(getToday());
   const [activityName, setActivityName] = useState("Please select your activity");
+  const [checkInDate, setCheckInDate] = useState(getToday());
+  const [checkOutDate, setCheckOutDate] = useState(null);
+  const [guests, setGuests] = useState(null);
+  const [type, setType] = useState('Select your preferred accommodation');
 
   // Function to get today's date in 'yyyy-MM-dd' format
   function getToday() {
@@ -64,6 +68,33 @@ function App() {
               element={
                 <RoomAvailability
                   allRoomData={allRoomData}
+                  checkInDate={checkInDate}
+                  setCheckInDate={setCheckInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckOutDate={setCheckOutDate}
+                  guests={guests}
+                  setGuests={setGuests}
+                  type={type}
+                  setType={setType}
+                />
+              }
+            />
+
+{/* http://localhost:3001/room-availability/2024-08-07/2024-08-08/1/Select%20your%20preferred%20accommodation */}
+
+            <Route
+              path={`/room-availability/:checkInDate/:checkOutDate/:guests/:type`}
+              element={
+                <RoomAvailability
+                  allRoomData={allRoomData}
+                  checkInDate={checkInDate}
+                  setCheckInDate={setCheckInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckOutDate={setCheckOutDate}
+                  guests={guests}
+                  setGuests={setGuests}
+                  type={type}
+                  setType={setType}
                 />
               }
             />
