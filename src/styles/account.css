@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-h1 {
+.accountHeader h1 {
     font-size: 3em;
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -31,7 +31,7 @@ h1 {
     text-align: center;
 }
 
-h2 {
+.div1 h2 {
     font-size: 2em;
     color: black;
     font-weight: 100;
@@ -40,7 +40,7 @@ h2 {
     padding:2%;
 }   
 
-h3 {
+.div2 h3 {
     font-size: 1.3em;
     color: black;
     font-weight: 100;
