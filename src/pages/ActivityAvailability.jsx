@@ -22,7 +22,7 @@ const ActivityAvailability = ({
   useEffect(() => {
     const fetchActivities = async () => {
       setLoading(true);
-      setError(null); // Reset error state on new fetch
+      setError(null); 
 
       try {
         const date = paramDate || activityDate;
@@ -35,17 +35,17 @@ const ActivityAvailability = ({
                 const response = await fetch(url);
                 const result = await response.json();
                 setFilteredActivity(result);
-                setFilteredActivities([]); // Clear other results if filtering
+                setFilteredActivities([]); 
                 console.log(result);
             } else if (paramName === "Please select your activity" || !paramName) {
                 url = `${config.backendBaseURL}/api/activities/availability/all?date=${date}`;
                 const response = await fetch(url);
                 const result = await response.json();
                 setFilteredActivities(result);
-                setFilteredActivity(null); // Clear specific activity if fetching all
+                setFilteredActivity(null); 
                 console.log(result);
             } else {
-                // Fallback case: fetch all activities if name is not set
+                
                 const response = await fetch(url);
                 const result = await response.json();
                 setFilteredActivities(result);

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 
 const usePost = (url) => {
-  const [data, setData] = useState(null);  // Holds the response data
-  const [loading, setLoading] = useState(false);  // Tracks if the request is in progress
-  const [error, setError] = useState(null);  // Holds any errors that occur during the request
+  const [data, setData] = useState(null);  
+  const [loading, setLoading] = useState(false);  
+  const [error, setError] = useState(null);  
 
-  // Function to perform the POST request
   const postData = async (requestData) => {
-    setLoading(true);  // Set loading to true when starting the request
-    setError(null);  // Clear any previous errors
+    setLoading(true); 
+    setError(null);  
   
     try {
       const response = await fetch(url, {
@@ -20,21 +19,21 @@ const usePost = (url) => {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);  // Throw error if response is not ok
+        throw new Error(`HTTP error! Status: ${response.status}`);  
       }
 
-      const json = await response.json();  // Parse the JSON response
-      setData(json);  // Update the data state with the response
+      const json = await response.json(); 
+      setData(json);  
     } catch (error) {
-      setError(error);  // Set error state if there is an exception
+      setError(error);  
     } finally {
-      setLoading(false);  // Set loading to false when request is complete
+      setLoading(false);  
     }
     
     
   };
 
-  return { data, loading, error, postData };  // Return state and function for use in components
+  return { data, loading, error, postData };  
 };
 
 export default usePost;
