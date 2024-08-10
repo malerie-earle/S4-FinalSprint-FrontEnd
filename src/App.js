@@ -78,6 +78,7 @@ function App() {
   
 
   return (
+<<<<<<< Updated upstream
     <>
       <Nav isAuthenticated={!!user} handleSignOut={() => setUser(null)} />
       <Routes>
@@ -86,6 +87,37 @@ function App() {
         
         <Route
           path="/room-availability"
+=======
+    <Authenticator>
+      {({ signOut, user }) => (
+        <>
+          <Nav isAuthenticated={user} handleSignOut={signOut} />
+          <Routes>
+            {/* Public routes */}
+            <Route path="/" element={<Home />} />
+            
+        <Route
+              path="/room-availability"
+              element={
+                <RoomAvailability
+                  checkInDate={checkInDate}
+                  setCheckInDate={setCheckInDate}
+                  checkOutDate={checkOutDate}
+                  setCheckOutDate={setCheckOutDate}
+                  guests={guests}
+                  setGuests={setGuests}
+                  type={type}
+              setType={setType}
+              allRoomData={allRoomData}
+              allRoomLoading={allRoomLoading}
+              allRoomError={allRoomError}
+            />
+          }
+        />
+
+        <Route
+          path={`/room-availability/:checkInDate/:checkOutDate/:requestedOccupancy/:roomType`}
+>>>>>>> Stashed changes
           element={
             <RoomAvailability
               checkInDate={checkInDate}
@@ -97,12 +129,33 @@ function App() {
               type={type}
               setType={setType}
               allRoomData={allRoomData}
+<<<<<<< Updated upstream
               allRoomLoading={allRoomLoading}
               allRoomError={allRoomError}
+=======
+                  allRoomLoading={allRoomLoading}
+                  allRoomError={allRoomError}
+                />
+              }
+            />
+    
+        <Route
+              path="/activity-availability"
+              element={
+            <ActivityAvailability
+              activityDate={activityDate}
+              setActivityDate={setActivityDate}
+              activityName={activityName}
+              setActivityName={setActivityName}
+              allActivityData={allActivityData}
+              allActivityLoading={allActivityLoading}
+              allActivityError={allActivityError}
+>>>>>>> Stashed changes
             />
           }
         />
 
+<<<<<<< Updated upstream
         <Route
           path={`/room-availability/:checkInDate/:checkOutDate/:requestedOccupancy/:roomType`}
           element={
@@ -151,6 +204,22 @@ function App() {
           />
         }
       />
+=======
+      <Route
+        path={`/activity-availability/:activityDate/:activityName`}
+        element={
+              <ActivityAvailability
+                activityDate={activityDate}
+                setActivityDate={setActivityDate}
+                activityName={activityName}
+                setActivityName={setActivityName}
+                allActivityData={allActivityData}
+                allActivityLoading={allActivityLoading}
+                allActivityError={allActivityError}
+              />
+            }
+          />
+>>>>>>> Stashed changes
 
         {/* Protected routes */}
         <Route
@@ -186,10 +255,19 @@ function App() {
             </Authenticator>
           }
         />
+<<<<<<< Updated upstream
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </>
   );
+=======
+\
+      </Routes>
+    </>
+  )}
+</Authenticator>
+);
+>>>>>>> Stashed changes
 }
 
 export default App;
