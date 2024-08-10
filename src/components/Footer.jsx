@@ -1,40 +1,30 @@
 import React from 'react';
-import '../styles/Footer.css'; // Make sure to create a corresponding CSS file for styling
+import '../styles/Footer.css'; // Ensure this file exists for styling
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-section contact-info">
-          <h3>Contact Us</h3>
+        <div className="contact-info">
+          <p>C O N T A C T&nbsp;&nbsp;&nbsp;U S</p>
           <p>33 Coal Reef Drive</p>
           <p>Malé, Maldives</p>
+          <br></br>
           <p>info@islandserenity.com</p>
           <p>1-800-333-1111</p>
         </div>
         
-        <div className="footer-section social-media">
-          <h3>Follow Us</h3>
-          <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <img src="/images/facebook-icon.png" alt="Facebook" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <img src="/images/twitter-icon.png" alt="Twitter" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <img src="/images/instagram-icon.png" alt="Instagram" />
-            </a>
-          </div>
+        <div className="social-media">
+          <h3>Follow us</h3>
+          <div className="facebook"></div>
+          <div className="instagram"></div>
+          <div className="tiktok"></div>
+
         </div>
         
         <div className="footer-section quick-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-          </ul>
+          <h3>About Us</h3>
+          <p>sldjslfksfsdkljf</p>
         </div>
       </div>
       
