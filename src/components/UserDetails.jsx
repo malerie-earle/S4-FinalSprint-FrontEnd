@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCurrentUser } from '@aws-amplify/auth';
+import config from '../config';
 
 const UserDetails = ({ onFetchUserDetails }) => {
   const [userDetails, setUserDetails] = useState(null);
@@ -16,7 +17,7 @@ const UserDetails = ({ onFetchUserDetails }) => {
         console.log('Current user:', username);
         
         if (username) {
-          const response = await fetch(`http://localhost:8080/api/users/${username}`, {
+          const response = await fetch(`${config.backendBaseURL}/api/users/${username}`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json; charset=UTF-8',

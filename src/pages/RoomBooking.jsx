@@ -1,16 +1,15 @@
 import React from 'react';
-import Nav from '../components/Nav';
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useState} from "react";
+import config from '../config';
+import { Link } from 'react-router-dom';
+import "../styles/room-confirmation.css"
 
 const RoomBooking = ({user}) => {
-  console.log(user);
-  //fetch params from last page here: TODO
 
-  let user_id=1;
-  let room_id=2;
-  let start='2024-04-04';
-  let end='2024-04-06';
+  let start = useLocation().state.end
+  let end = useLocation().state.start
+  let room = useLocation().state.room
 
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
@@ -24,11 +23,11 @@ const RoomBooking = ({user}) => {
       */
       
       
-      const response = await fetch("http://localhost:8080/api/rooms/book", {
+      const response = await fetch(config.backendBaseURL+"/api/rooms/book", {
         method: 'POST',
         body: JSON.stringify({
-            user_id: user_id,
-            room_id: room_id,
+            username: user.username,
+            room_id: room.room_id,
             start: start,
             end: end
           }),
@@ -57,18 +56,28 @@ const RoomBooking = ({user}) => {
   if(error == null){
     if(sent === true){
       return (
-        <div>
-          <h1>SUCCESS</h1>
+        <div className='room-booking'>
+          <h1 className='room-heading'>Thank-you! Your room has been reserved.</h1>
+          <div className='success-div'>
+            <div className='confirmation-textbox'>
+              <p>Room: {room.room_name}</p>
+              <p>Check-In Date: {start}</p>
+              <p>Check-Out Date: {end}</p>
+              <button className="account-button"><Link to="/account">View All Bookings</Link></button>
+            </div>
+          </div>
         </div>
       )
     } else {
       return (
-        <div>
-          <h1>Booking</h1>
-          <p> Confirm booking for room {room_id} from {start} to {end} </p>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <button type="submit"> Submit</button>
+        <div className="room-booking">
+          <h1 className='room-heading'>Please Confirm Your Booking</h1>
+          <form onSubmit={handleSubmit} className='room-confirmation-form'>
+            <div className='confirmation-textbox'>
+              <p>Room: {room.room_name}</p>
+              <p>Check-In: {start}</p>
+              <p>Check-Out: {end}</p>
+              <button type="submit" className='confirmation-button'> Submit</button>
             </div>
           </form>
         </div>

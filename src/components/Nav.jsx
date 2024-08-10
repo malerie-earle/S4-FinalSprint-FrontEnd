@@ -27,11 +27,11 @@ const Nav = ({ isAuthenticated, handleSignOut }) => {
                     {isAuthenticated ? (
                         <span
                             className="navLinks3"
-                            onClick={handleSignOut}
+                            onClick={signOut}
                             style={{ cursor: 'pointer' }}
                         >
                             Sign Out
-                            <img src={logout} alt="logout" className="logout" />
+                            <img onClick={signOut} src={logout} alt="logout" className="logout" />
                         </span>
                     ) : (
                         <Link to="/account" className="navLinks3" id="signInLink">
