@@ -13,59 +13,46 @@ const RoomBookings = ({ user }) => {
   const room = location.state?.room;
 
   const fetchRoomBookings = async () => {
-    if (user) {
-      try {
-        const response = await fetch(
-          `${config.backendBaseURL}/api/rooms/bookings/username?username=${user.username}`
-        );
+    try {
+      const response = await fetch(config.backendBaseURL+"/api/rooms/book", {
+        method: 'POST',
+        body: JSON.stringify({
+          username: user.username,
+          room_id: room.room_id,
+          start: start,
+          end: end,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch room bookings.");
-        }
-
-        const result = await response.json();
-        setBookings(result || []);
-      } catch (err) {
-        setError("Error fetching room bookings.");
-        console.error(err);
+      if (!response.ok) {
+        throw new Error("No current bookings found.");
       }
-    }
-  };
 
-  const bookRoom = async () => {
-    if (user && room && start && end) {
-      try {
-        setError(null); // Clear any previous errors
-        const response = await fetch(`${config.backendBaseURL}/api/rooms/book`, {
-          method: 'POST',
-          body: JSON.stringify({
-            username: user.username,
-            room_id: room.room_id,
-            start: start,
-            end: end,
-          }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to book room.");
-        }
-
+      const result = await response.json();
+      if (result) {
         setSent(true);
-      } catch (err) {
-        setError("Error booking the room.");
-        console.error(err);
+        return result;  // Assuming result contains bookings
+      } else {
+        setError("No room bookings found.");
+        return [];
       }
-    } else {
-      setError("Booking details are incomplete.");
+    } catch (err) {
+      setError("No room bookings found.");
+      return [];
     }
   };
 
   useEffect(() => {
-    fetchRoomBookings();
-  }, [user]);
+    const loadBookings = async () => {
+      const data = await fetchRoomBookings();
+      setBookings(data);
+    };
+
+    loadBookings();
+  }, []);
 
   return (
     <div>
@@ -75,12 +62,13 @@ const RoomBookings = ({ user }) => {
         <p>No room bookings found.</p>
       ) : (
         <div>
-          {bookings.map((booking) => (
+          {bookings.map(booking => (
             <div key={booking.id} className="bookingItem">
               <p><strong>Rm #:</strong> {booking.room_number}</p>
               <h4 className="roomName">{booking.roomName}</h4>
               <p className="bookingDetails">
-                <strong>Date:</strong> {new Date(booking.startDate).toLocaleDateString()} to {new Date(booking.endDate).toLocaleDateString()}
+                <strong>Date:</strong> {booking.date} <br />
+                <strong>Time:</strong> {booking.time}
               </p>
               <br />
             </div>
@@ -88,9 +76,6 @@ const RoomBookings = ({ user }) => {
         </div>
       )}
       {sent && !error && <p style={{ color: 'green' }}>Booking successful!</p>}
-      {!sent && room && (
-        <button onClick={bookRoom}>Confirm Booking</button>
-      )}
     </div>
   );
 };

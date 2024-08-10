@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+// import useFetch from '../hooks/useFetch'; // Import your useFetch hook implementation
 import '../styles/activity-room-search-bars.css';
 
 const ActivitySearchBar = ({
@@ -13,7 +14,7 @@ const ActivitySearchBar = ({
   const navigate = useNavigate();
    
   const handleInputChange = (e) => {
-
+    // Update state based on input changes
     if (e.target.name === 'activity-name') {
       setActivityName(e.target.value);
     } else if (e.target.name === 'activity-date') {
@@ -24,6 +25,7 @@ const ActivitySearchBar = ({
   const handleSearch = (event) => {
     event.preventDefault();
 
+    // Clear previous date error
     setDateError('');
 
     if (!activityDate) {
@@ -31,11 +33,13 @@ const ActivitySearchBar = ({
       return;
     }
 
+    // Construct URL based on the selected filters
     let url = `/activity-availability/${activityDate}/`;
     if (activityName && activityName !== "") {
         url += `${activityName}`;
     }
 
+    // Navigate to the search results page with selected parameters
     navigate(url);
   };
 
