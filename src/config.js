@@ -1,5 +1,5 @@
 const config = {
-    backendBaseURL: 'http://localhost:8080',
+    backendBaseURL: 'http://3.235.11.65',
 }
 
 export default config;
