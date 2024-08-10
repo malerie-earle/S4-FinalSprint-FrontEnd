@@ -1,17 +1,15 @@
 import React from 'react';
 import Nav from '../components/Nav';
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 
 const RoomBooking = ({user}) => {
   console.log(user);
   //fetch params from last page here: TODO
 
-  let user_id=1;
-  let room_id=2;
-  let start='2024-04-04';
-  let end='2024-04-06';
+  let start = useLocation().state.end
+  let end = useLocation().state.start
+  let room = useLocation().state.room
 
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
@@ -20,7 +18,7 @@ const RoomBooking = ({user}) => {
   const bookRoom = async () => {
     try{
       /*
-      let url = http://localhost:8080/api/rooms/book?user_id=${user_id}&room_id=${room_id}&start=${start}&end=${end};
+      let url = `http://localhost:8080/api/rooms/book?user_id=${user_id}&room_id=${room_id}&start=${start}&end=${end}`;
       const response = await fetch(url);
       */
       
@@ -28,8 +26,8 @@ const RoomBooking = ({user}) => {
       const response = await fetch("http://localhost:8080/api/rooms/book", {
         method: 'POST',
         body: JSON.stringify({
-            user_id: user_id,
-            room_id: room_id,
+            username: user.username,
+            room_id: room.room_id,
             start: start,
             end: end
           }),
@@ -43,9 +41,9 @@ const RoomBooking = ({user}) => {
       if(result != null){
         setSent(true);
       }
-      else(setError("Booking did not go through. Please return to booking page and try again"))
+      else(setError("Booking did not go through; head back to booking page and try again"))
     }catch(err){
-      setError("Booking did not go through. Please return to booking page and try again")
+      setError("Booking did not go through; head back to booking page and try again")
     }
   }
 
@@ -57,34 +55,34 @@ const RoomBooking = ({user}) => {
  
   if(error == null){
     if(sent === true){
-      return ( <div>
-        <h1>SUCCESS</h1>
-      </div>
-    )
+      return (
+        <div>
+          <h1>SUCCESS</h1>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h1>Booking</h1>
+          <p> Confirm booking for room {room.room_name} from {start} to {end} </p>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <button type="submit"> Submit</button>
+            </div>
+          </form>
+        </div>
+      )
+    }
   } else {
-    return (
+    console.log(error);
+    return(
       <div>
         <h1>Booking</h1>
-        <p> Confirm booking for room {room_id} from {start} to {end} </p>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <button type="submit"> Submit</button>
-          </div>
-        </form>
+        <p>{error}</p>
       </div>
     )
-  }
-} else {
-  console.log(error);
-  return(
-    <div>
-      <h1>Booking</h1>
-      <p>{error}</p>
-    </div>
-  )
-};
-
+  };
+  
 }
-
 
 export default RoomBooking;
