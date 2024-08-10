@@ -3,6 +3,8 @@ import UserDetails from '../components/UserDetails';
 import RoomBookings from '../components/RoomBookings';
 import ActivityBookings from '../components/ActivityBookings';
 import '../styles/account.css';
+import arrowImg from '../images/arrow_forward.png';
+import { Link } from 'react-router-dom';
 
 const Account = ({ signOut, user }) => {
   const [userDetails, setUserDetails] = useState(null);
@@ -16,28 +18,58 @@ const Account = ({ signOut, user }) => {
   return (
     <>
       <UserDetails user={user} onFetchUserDetails={handleFetchUserDetails} />
-      <div className = "mainDiv">
-        {userDetails && (
-          <>
-            <h1>Hi, {userDetails.firstName} {userDetails.lastName}!</h1>
-            <h2>Account Details:</h2>
-            <p>Username: {username}</p>
-            <p>Email: {userDetails.email}</p>
+      {userDetails && (
+        <>
+        <div className= "topNav"></div>
+          <div className="accountHeader">
+            <h1>See you soon, {userDetails.firstName} {userDetails.lastName}!</h1>
+            {/* <button onClick={signOut}>Sign Out</button> */}
+          </div>
 
-            <h2>Bookings:</h2>
+          <div className="mainDiv">
+
+            <div className = "accountDetails">
+              <div className="div1">
+                <h2>Account Details</h2>
+                <p>Username: {username}</p>
+                <p>Name: {userDetails.firstName} {userDetails.lastName}</p> 
+                <p>Email: {userDetails.email}</p>
+              </div>
+
+            <div className="div2">
+              <Link to="/room-availability"><h3 className="links1">Book a Room >></h3>{/* <img className = "accountArrow" src={arrowImg} alt="arrow" />*/}
+              </Link>
+              <Link to="/activity-availability"><h3 className="links1">Book an Activity >></h3>{/* <img className = "accountArrow" src={arrowImg} alt="arrow" />*/}
+              </Link> 
+               <h3 className="links1" onClick={signOut}>
+                Sign Out >>
+                </h3>{/*<img className = "accountArrow" src={arrowImg} alt="arrow" /> */}
+            </div>
+
+            
+            <img className="beachfeet" src="https://img.freepik.com/free-photo/back-view-woman-s-feet-beach-sands_23-2148614770.jpg?uid=R106210913&ga=GA1.1.75415720.1720630919&semt=ais_hybrid" alt="beach" />
+            </div>
+            </div>
+            <div className="bookingHeader">
+          <h2 className="bookingH2">Bookings</h2>
+          </div>
+            
+          <div className = "bookings">
+
+            <img src="https://img.freepik.com/free-photo/landscape-resort-holiday-pool-tropical_1203-5202.jpg?uid=R106210913&ga=GA1.1.75415720.1720630919&semt=ais_hybrid" alt="pool" className="poolImg" />
 
             <div className="roomDiv">
-              <h3>Rooms:</h3>
+
               <RoomBookings />
             </div>
 
             <div className="activityDiv">
-              <h3>Activities:</h3>
               <ActivityBookings />
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        
+</>
+      )}
     </>
   );
 };
