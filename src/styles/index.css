@@ -144,13 +144,7 @@
   top: -20px;
 }
 
-.box-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  position: relative;
-  top: 25px;
-}
+
 
 .small-box-1 {
   width: 300px;
@@ -216,19 +210,22 @@
 .info-box {
   width: 30%;
   height: 500px;
-  background-color: rgb(42, 123, 119);
+  background-color: #2a7b77;
   position: relative;
-  top: -160px;
-  left: 285px;
-  transform: translate(-50%, -50%);
+  top: 150px;
+  left: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   box-shadow: 0 2px 15px rgba(0, 0, 0, .6);
   padding: 20px;
-  z-index: 3; /* Highest z-index */
+  z-index: 3;
+  margin-top: -550px; /* Adjust to overlap the previous element */
+
 }
+
+
 
 .info-box-logo {
   width: 150px;
@@ -243,7 +240,7 @@
 
 .testimonials-title {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #ffffff;
   letter-spacing: 0.5rem;
   text-align: center;
@@ -265,7 +262,7 @@
 .wave-box {
   width: 100%;
   max-width: 100%;
-  height: 1675px;
+  height: 2575px;
   background-color: rgb(211, 250, 250);
   display: flex;
   align-items: center;
@@ -276,19 +273,29 @@
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 2px 15px rgba(0, 0, 0, .6);
-  z-index: 1; /* Lower z-index */
   position: relative;
-  top: -520px;
-}
+  top: 10px;
+  }
 
 .wave-box-text {
   font-family: 'DM Serif Display', serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-top: 150px;
   color: rgb(211, 250, 250);
   text-align: center;
   position: relative;
-  top: -10px;
+  top: 30px;
+}
+
+.wave-box p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+  top: -15px;
 }
 
 .room-box {
@@ -300,8 +307,8 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  top: 50px;
-  right: 305px;
+  top: 40px;
+  right: 303px;
   z-index: 0;
   box-shadow: 0 2px 15px rgba(0, 0, 0, .6);
 }
@@ -315,18 +322,13 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  right: -305px;
-  top: -450px;
+  right: -302px;
+  top: -460px;
   z-index: 0;
   box-shadow: 0 2px 15px rgba(0, 0, 0, .6);
 }
 
-.room-box, .room-box2 {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
-}
+
 
 .room-box img, .room-box2 img {
   width: 100%;
@@ -363,16 +365,7 @@ h2 {
   text-align: center;
 }
 
-.wave-box p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  color: #ffffff;
-  line-height: 1.6;
-  text-align: center;
-  margin-top: 50px;
-  position: relative;
-  top: -35px;
-}
+
 
 .rectangle-box {
   width: 75%;
@@ -506,11 +499,11 @@ h2 {
 
 .activities-text p {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.4rem;
-  color: rgb(255, 255, 255);
+  font-size: 2.6rem;
+  color: rgb(211, 250, 250);
   text-align: center;
   position: relative;
-  top: 40px;
+  top: 630px;
 }
 
 .activities-text2 p {
@@ -519,14 +512,167 @@ h2 {
   color: rgb(255, 255, 255);
   text-align: center;
   position: relative;
-  top: 10px;
+  top: 580px;
 }
 
-.activities-box {
-  width: 100%;
-  max-width: 100%;
-  height: 1000px;
-  background-color: rgb(246, 167, 176);
+
+.activity-box1 {
+  width: 550px;
+  height: 300px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #000;
   position: relative;
-  z-index: 0; /* Lower z-index */
+  top: 460px;
 }
+
+.activity-box1 iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+.activity-box2 {
+  width: 450px;
+  height: 300px;
+  background-image: url('../images/snorkeling.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  position: relative;
+  top: 450px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.activity-box2 .overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 123, 119, 0.6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.activity-box2:hover .overlay-text {
+  opacity: 1;
+}
+
+.activity-box2 .overlay-text h2 {
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.activity-box2 .overlay-text button {
+  background-color: rgb(255, 138, 152);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: -10px;
+  transition: background-color 0.3s ease;
+}
+
+.activity-box2 .overlay-text button:hover {
+  background-color: rgb(8, 159, 149);
+}
+
+
+
+.box-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: -220px;
+  position: relative;
+  top: 362px;
+  
+}
+
+.beach-box2 {
+  width: 87.5%;
+  max-width: 100%;
+  height: 500px;
+  background-image: url('../images/resort2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -625px;
+  z-index: 2;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .6);
+}
+
+.info-box2 {
+  width: 35%;
+  height: 650px;
+  background-color: rgb(227, 114, 127);
+  position: relative;
+  top: -850px;
+  left: -302px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  z-index: 3;
+  margin-top: -350px;
+}
+
+
+.info-box-logo2 {
+  width: 150px;
+  height: 150px;
+  background-image: url('../images/logowhite.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: .09;
+}
+
+
+.amenities-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+  top: -100px;
+}
+
+.amenities-text, .amenities-text2, .amenities-text3, .amenities-text4 {
+font-family: 'DM Serif Display', serif;
+font-size: 1.3em;
+color: white;
+text-align: center;
+position:relative;
+top: -25px;
+
+}
+
+.amenities-text p, .amenities-text2 p, .amenities-text3 p, .amenities-text4 p {
+  font-family: 'Roboto', sans-serif;
+  margin: 5px;
+  color: white;
+  line-height: 1.4;
+  font-size: .7em;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+}
+

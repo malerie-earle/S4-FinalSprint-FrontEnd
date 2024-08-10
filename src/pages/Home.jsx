@@ -1,7 +1,6 @@
 import React from 'react';
-import Nav from '../components/Nav';
-import Slideshow from '../components/Slideshow';
 import Footer from '../components/Footer';
+import Slideshow from '../components/Slideshow';
 import '../styles/index.css';
 
 const Home = () => {
@@ -41,7 +40,9 @@ const Home = () => {
             </div>
           
           
-            <button type="submit">E X P L O R E</button>
+            <a href="/room-availability">
+  <button type="button">E X P L O R E</button>
+</a>
           </form>
         </div>
       </div>
@@ -59,7 +60,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="beach-box"></div> {}
+      <div className="beach-box"></div>
       <div className="info-box">
         <div className="info-box-logo"></div>
         <div className="testimonials-title">TESTIMONIALS</div>
@@ -77,21 +78,67 @@ const Home = () => {
         <div className="room-box">
           <div className="overlay-text">
             <h2>Ocean Views.</h2>
-            <p>Relax in our luxurious suite with stunning ocean views.</p>
+            Relax in our luxurious suite with stunning ocean views.
           </div>
         </div>
         <div className="room-box2">
           <div className="overlay-text">
             <h2>Tropical Breeze.</h2>
-            <p>Experience paradise in our private ocean villa.</p>
+            Experience paradise in our private ocean villa.
           </div>
+          
         </div>
         <div className="activities-text"><p>A D V E N T U R E&nbsp;&nbsp;&nbsp;A W A I T S</p></div>
         <div className="activities-text2"><p>Explore a world of captivating activities and enriching experiences designed to delight every guest. 
           <br></br>From exhilarating water sports to tranquil beachside lounging and immersive local tours. 
           At our resort, each moment is crafted to make your stay extraordinary.</p></div>
+          <div className="box-container2">
+          <div className="activity-box1">   
+          <iframe
+    src="https://www.youtube.com/embed/hWZGhtWUl1o?si=x70x1PlHtG7iCtss&autoplay=1&mute=1&loop=1&playlist=hWZGhtWUl1o&controls=0&modestbranding=1&rel=0&showinfo=0"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+  </div>
+          <div className="activity-box2"><div className="overlay-text">
+    <p>Discover the wonders of the ocean.</p>
+    <a href="/activity-availability">
+      <button>B O O K&nbsp;&nbsp;&nbsp;N O W</button>
+    </a>  </div></div>
+          
+          </div>
+          <div className="beach-box2">
+            
+          </div>
+      <div className="info-box2">
+        <div className="info-box-logo2"></div>
+        <div className="amenities-title">A M E N I T I E S</div>
+
+        <div className="amenities-text">
+        Private Beach Access
+        <p>Enjoy exclusive access to our pristine private beach.</p></div>
+
+        <div className="amenities-text2">
+        Personal Concierge
+        <p>Benefit from our personalized concierge service,<br></br>
+          available 24/7 to cater to your every need.</p></div>
+
+        <div className="amenities-text3">
+        Luxury Transfers
+        <p>Experience seamless and comfortable transfers to and <br></br>from 
+          the resort with our premium transportation services.</p></div>
+
+          <div className="amenities-text4">
+        Exclusive Experiences
+        <p>Embark on unforgettable excursions and adventures <br></br>tailored to your 
+          preferences and interests.</p>
+        </div>
+
+      </div>
        </div>
-      <div className="activities-box"></div>
       <Footer />
     </div>
   );
