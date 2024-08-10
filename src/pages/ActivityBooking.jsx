@@ -6,7 +6,7 @@ import "../styles/activity-confirmation.css"
 import config from '../config';
 
 const ActivityBooking = ({user}) => {
-
+  //fetch params from last page here: TODO
   let date = useLocation().state.date
   let activity = useLocation().state.activity
   console.log(useLocation());

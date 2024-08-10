@@ -10,7 +10,7 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
     const [guestError, setGuestError] = useState(null);
 
     const handleInputChange = (e) => {
-
+        // Update state based on input changes
         if (e.target.name === 'checkin-date') {
             setCheckInDate(e.target.value);
         } else if (e.target.name === 'checkout-date') {
@@ -38,17 +38,20 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
             return;
         }
 
+        // Example: Log the dates to the console or send them to an API
         console.log(`Check-In Date: ${checkInDate}`);
         console.log(`Check-Out Date: ${checkOutDate}`);
+        // // Clear error and reset form or redirect as needed
         setGuestError('');
         setDateError('');
 
-
+         // Construct URL based on the selected filters
          let url = `/room-availability/${checkInDate}/${checkOutDate}/${guests}/`;
          if (type && type !== "") {
              url += `${type}`;
          }
      
+         // Navigate to the search results page with selected parameters
          navigate(url);
     }
   
@@ -93,7 +96,9 @@ const RoomSearchBar = ({checkInDate, setCheckInDate, checkOutDate, setCheckOutDa
                             <option value="room">Room</option>
                             <option value="suite">Suite</option>
                             <option value="villa">Villa</option>
-
+                            {/* {allRoomData && allRoomData.map(room => (
+                                <option key={room.room_id}>{room.type}</option>
+                            ))} */}
                         </select>
                     </div>
                 </div>
