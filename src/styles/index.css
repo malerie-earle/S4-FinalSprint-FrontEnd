@@ -27,7 +27,7 @@
 }
 
 .overlay p {
-  font-size: 3.6rem;
+  font-size: 3.4rem;
   font-family: 'DM Serif Display', serif;
   margin-bottom: 0px;
   line-height: 1.2;
@@ -49,7 +49,7 @@
 }
 
 .overlay button {
-  margin-left: 115px;
+  margin-left: 110px;
   margin-top: -15px;
   background-color: rgb(42, 123, 119);
   border: none;
@@ -126,7 +126,7 @@
 
 .highlighted-word {
   font-family: 'Petit Formal Script', cursive;
-  font-size: 3rem;
+  font-size: 2.9rem;
   color: rgb(42, 123, 119);
   text-align: center;
   align-items: center;
@@ -136,7 +136,7 @@
 
 .rectangle-box2-text {
   font-family: 'DM Serif Display', serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   margin: 0;
   color: rgb(42, 123, 119);
   text-align: center;
@@ -185,7 +185,7 @@
 
 .rectangle-box2-text2 {
   font-family: 'Roboto', sans-serif;
-  font-size: .95rem;
+  font-size: .8rem;
   color: rgb(42, 123, 119);
   position: absolute;
   top: 117%;
@@ -249,7 +249,7 @@
 
 .testimonials1, .testimonials2, .testimonials3 {
   font-family: 'Roboto', sans-serif;
-  font-size: .90rem;
+  font-size: .80rem;
   color: #ffffff;
   text-align: center;
   max-width: 90%;
@@ -279,7 +279,7 @@
 
 .wave-box-text {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-top: 150px;
   color: rgb(211, 250, 250);
   text-align: center;
@@ -289,7 +289,7 @@
 
 .wave-box p {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.1rem;
+  font-size: .9rem;
   color: #ffffff;
   line-height: 1.6;
   text-align: center;
@@ -499,7 +499,7 @@ h2 {
 
 .activities-text p {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.6rem;
+  font-size: 2.3rem;
   color: rgb(211, 250, 250);
   text-align: center;
   position: relative;
@@ -508,7 +508,7 @@ h2 {
 
 .activities-text2 p {
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: .9rem;
   color: rgb(255, 255, 255);
   text-align: center;
   position: relative;
@@ -658,7 +658,7 @@ h2 {
 
 .amenities-text, .amenities-text2, .amenities-text3, .amenities-text4 {
 font-family: 'DM Serif Display', serif;
-font-size: 1.3em;
+font-size: 1.1em;
 color: white;
 text-align: center;
 position:relative;
