@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getCurrentUser } from '@aws-amplify/auth';
+import config from '../config';
 
 const ActivityBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -39,7 +40,7 @@ const ActivityBookings = () => {
       return [];
     }
     try {
-      const response = await fetch("http://localhost:8080/api/activities/book", {
+      const response = await fetch(config.backendBaseURL+"api/activities/book", {
         method: 'POST',
         body: JSON.stringify({
           userName: user.username,

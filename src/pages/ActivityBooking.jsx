@@ -3,6 +3,7 @@ import Nav from '../components/Nav';
 import { useParams, useLocation, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../styles/activity-confirmation.css"
+import config from '../config';
 
 const ActivityBooking = ({user}) => {
   //fetch params from last page here: TODO
@@ -19,7 +20,7 @@ const ActivityBooking = ({user}) => {
 
   const bookActivity = async () => {
     try{
-      const response = await fetch("http://localhost:8080/api/activities/book", {
+      const response = await fetch(config.backendBaseURL+"/api/activities/book", {
         method: 'POST',
         body: JSON.stringify({
             userName: user.username,
