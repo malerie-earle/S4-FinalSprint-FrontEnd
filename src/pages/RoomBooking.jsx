@@ -2,6 +2,8 @@ import React from 'react';
 import Nav from '../components/Nav';
 import { useParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "../styles/room-confirmation.css"
+import { Link } from 'react-router-dom';
 
 const RoomBooking = ({user}) => {
   console.log(user);
@@ -56,18 +58,42 @@ const RoomBooking = ({user}) => {
   if(error == null){
     if(sent === true){
       return (
-        <div>
-          <h1>SUCCESS</h1>
+        <div className='room-booking'>
+          <h1 className='room-heading'>Thank-you! Your room has been reserved.</h1>
+          <div className='success-div'>
+            <div className='confirmation-textbox'>
+              <p>Room: {room.room_name}</p>
+              <p>Check-In Date: {start}</p>
+              <p>Check-Out Date: {end}</p>
+              <button className="account-button"><Link to="/account">View All Bookings</Link></button>
+            </div>
+          </div>
         </div>
       )
     } else {
       return (
-        <div>
-          <h1>Booking</h1>
-          <p> Confirm booking for room {room.room_name} from {start} to {end} </p>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <button type="submit"> Submit</button>
+
+        // <div className='activity-booking'>
+        //   <h1 className='activity-heading'>Please Confirm Your Booking</h1>
+        //   <form onSubmit={handleSubmit} className="activity-confirmation-form">
+        //     <div className='confirmation-textbox'>
+        //       <p>Activity: {activity.name}</p>
+        //       <p>Date: {date}</p>
+        //       <p>Time: {activity.time}</p>
+        //       <p>Do you wish to continue?</p>
+        //       <button type="submit" className="confirmation-button">Confirm</button>
+        //     </div>
+        //   </form>
+        // </div>
+
+        <div className="room-booking">
+          <h1 className='room-heading'>Please Confirm Your Booking</h1>
+          <form onSubmit={handleSubmit} className='room-confirmation-form'>
+            <div className='confirmation-textbox'>
+              <p>Room: {room.room_name}</p>
+              <p>Check-In: {start}</p>
+              <p>Check-Out: {end}</p>
+              <button type="submit" className='confirmation-button'> Submit</button>
             </div>
           </form>
         </div>
