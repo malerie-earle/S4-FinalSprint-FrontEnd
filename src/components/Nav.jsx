@@ -6,7 +6,7 @@ import "../styles/nav.css";
 import logout from "../images/logout.png";
 import person from "../images/person2.png";
 
-const Nav = ({ isAuthenticated, handleSignOut }) => {
+const Nav = ({ isAuthenticated, signOut }) => {
     return (
         <div className="mainNavBox">
             <div className="box1">
