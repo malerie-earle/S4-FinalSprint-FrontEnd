@@ -19,6 +19,7 @@ const RoomDetails = ({room, start, end}) => {
 
   return (
     <div className="roomBookingDetails">
+        <h3 className="room-num">{room.room_number}</h3>
         <h3 className="room-name">{room.room_name}</h3>
         <form className="room-form">
           <RoomImageSlideshow imagesList={imagesList}/>
