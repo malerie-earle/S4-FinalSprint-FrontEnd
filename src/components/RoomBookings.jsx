@@ -1,18 +1,48 @@
-// RoomBookingDetails.js
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-// Example API call function
-const fetchRoomBookings = async () => {
-  // Replace with your actual API call or data fetching logic
-  // For example, using fetch or axios
-  return [
-    { id: 1, room_number: 104, roomName: 'Conference Room A', date: '2024-08-01', time: '10:00 AM - 12:00 PM' },
-    { id: 2, room_number: 105, roomName: 'Meeting Room 2', date: '2024-08-02', time: '2:00 PM - 4:00 PM' }
-  ];
-};
-
-const RoomBookings = () => {
+const RoomBookings = ({ user }) => {
   const [bookings, setBookings] = useState([]);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(null);
+
+  const location = useLocation();
+  const start = location.state?.start;
+  const end = location.state?.end;
+  const room = location.state?.room;
+
+  const fetchRoomBookings = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/rooms/book", {
+        method: 'POST',
+        body: JSON.stringify({
+          username: user.username,
+          room_id: room.room_id,
+          start: start,
+          end: end,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("No current bookings found.");
+      }
+
+      const result = await response.json();
+      if (result) {
+        setSent(true);
+        return result;  // Assuming result contains bookings
+      } else {
+        setError("No room bookings found.");
+        return [];
+      }
+    } catch (err) {
+      setError("No room bookings found.");
+      return [];
+    }
+  };
 
   useEffect(() => {
     const loadBookings = async () => {
@@ -26,13 +56,13 @@ const RoomBookings = () => {
   return (
     <div>
       <h3>Room Bookings:</h3>
-      {bookings.length === 0 ? (
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {bookings.length === 0 && !error ? (
         <p>No room bookings found.</p>
       ) : (
-
         <div>
           {bookings.map(booking => (
-            <div className="bookingItem">
+            <div key={booking.id} className="bookingItem">
               <p><strong>Rm #:</strong> {booking.room_number}</p>
               <h4 className="roomName">{booking.roomName}</h4>
               <p className="bookingDetails">
@@ -44,6 +74,7 @@ const RoomBookings = () => {
           ))}
         </div>
       )}
+      {sent && !error && <p style={{ color: 'green' }}>Booking successful!</p>}
     </div>
   );
 };
