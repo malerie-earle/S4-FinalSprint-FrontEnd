@@ -26,55 +26,6 @@ const RoomAvailability = ({
 
 
     useEffect(() => {
-        // const fetchRooms = async () => {
-        //   setLoading(true);
-        //   setError(null);
-        //   try {
-        //     const checkIn = paramCheckIn || checkInDate;
-        //     const checkOut = paramCheckOut || checkOutDate;
-        //     const occupancy = paramOccupancy || guests;
-        //     const roomType = paramType || type;
-
-
-        //     let url = 'http://localhost:8080/api/rooms';
-
-        //     // Fetch filtered rooms based on dates, guests, and type
-        //     if (checkIn && checkOut && occupancy && !roomType || roomType == "Select your preferred accommodation") {
-        //         // http://localhost:8080/api/rooms/availability/occupancy?startDate=2024-03-14&endDate=2024-03-19&requestedOccupancy=3
-        //         // api/rooms/availability/occupancy/type
-        //         // url = `http://localhost:8080/api/rooms/availability/occupancy/type?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}&roomType=${roomType}`;
-        //         // url = `http://localhost:8080/api/rooms/availability?startDate=${checkIn}&endDate=${checkOut}`;
-        //         url = `http://localhost:8080/api/rooms/availability/occupancy?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}`;
-        //         const response = await fetch(url);
-        //         const result = await response.json();
-        //         setFilteredRooms(result); // Clear other results if filtering
-        //         // setFilteredRoom(null);
-        //         console.log("checkin+checkout+occupancy result: "+result);
-        //     } else if (checkIn && checkOut && occupancy && roomType) {
-        //         // http://localhost:8080/api/rooms/availability/occupancy?startDate=2024-03-14&endDate=2024-03-19&requestedOccupancy=3
-        //         url = `http://localhost:8080/api/rooms/availability/occupancy/type?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}&roomType=${roomType}`;
-
-        //         // setError("Check in and check out dates are required.")
-        //         const response = await fetch(url);
-        //         const result = await response.json();
-        //         setFilteredRooms(result);
-        //         // setFilteredRoom(null); // Clear specific activity if fetching all
-        //         console.log("checkin+checkout+occupancy+roomType result:" + result);
-        //     } else {
-        //         // Fallback case: fetch all activities if name is not set
-        //         const response = await fetch(url);
-        //         const result = await response.json();
-        //         setFilteredRooms(result);
-        //         // setFilteredRoom(null);
-        //         console.log("fallback case result: "+result);
-        //     }
-            
-        //   } catch (err) {
-        //     setError(err);
-        //   } finally {
-        //     setLoading(false);
-        //   }
-        // };
     
         const fetchRooms = async () => {
             setLoading(true);
