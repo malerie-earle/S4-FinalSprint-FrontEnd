@@ -6,8 +6,8 @@ const fetchRoomBookings = async () => {
   // Replace with your actual API call or data fetching logic
   // For example, using fetch or axios
   return [
-    { id: 1, roomName: 'Conference Room A', date: '2024-08-01', time: '10:00 AM - 12:00 PM' },
-    { id: 2, roomName: 'Meeting Room 2', date: '2024-08-02', time: '2:00 PM - 4:00 PM' }
+    { id: 1, room_number: 104, roomName: 'Conference Room A', date: '2024-08-01', time: '10:00 AM - 12:00 PM' },
+    { id: 2, room_number: 105, roomName: 'Meeting Room 2', date: '2024-08-02', time: '2:00 PM - 4:00 PM' }
   ];
 };
 
@@ -25,30 +25,24 @@ const RoomBookings = () => {
 
   return (
     <div>
-      <h2>Room Bookings</h2>
+      <h3>Room Bookings:</h3>
       {bookings.length === 0 ? (
         <p>No room bookings found.</p>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Room Name</th>
-              <th>Date</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookings.map(booking => (
-              <tr key={booking.id}>
-                <td>{booking.id}</td>
-                <td>{booking.roomName}</td>
-                <td>{booking.date}</td>
-                <td>{booking.time}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+        <div>
+          {bookings.map(booking => (
+            <div className="bookingItem">
+              <p><strong>Rm #:</strong> {booking.room_number}</p>
+              <h4 className="roomName">{booking.roomName}</h4>
+              <p className="bookingDetails">
+                <strong>Date:</strong> {booking.date} <br />
+                <strong>Time:</strong> {booking.time}
+              </p>
+              <br />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
