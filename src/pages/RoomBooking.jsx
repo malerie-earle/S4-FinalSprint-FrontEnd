@@ -23,7 +23,7 @@ const RoomBooking = ({user}) => {
       */
       
       
-      const response = await fetch(config.backendBaseURL+"api/rooms/book", {
+      const response = await fetch(config.backendBaseURL+"/api/rooms/book", {
         method: 'POST',
         body: JSON.stringify({
             username: user.username,
