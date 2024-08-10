@@ -59,14 +59,14 @@ function getToday() {
 function App() {
   const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData('http://localhost:8080/api/activities');
   const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
-  
+
   console.log(allRoomData)
 
   const [activityDate, setActivityDate] = React.useState(getToday());
   const [activityName, setActivityName] = React.useState("Please select your activity");
   const [checkInDate, setCheckInDate] = React.useState(getToday());
-  const [checkOutDate, setCheckOutDate] = React.useState(null);
-  const [guests, setGuests] = React.useState(null);
+  const [checkOutDate, setCheckOutDate] = React.useState('');
+  const [guests, setGuests] = React.useState('');
   const [type, setType] = React.useState("Select your preferred accommodation")
   const [user, setUser] = React.useState(null);
 

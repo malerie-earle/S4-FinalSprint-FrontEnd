@@ -29,14 +29,14 @@ const ActivityAvailability = ({
 
         let url = 'http://localhost:8080/api/activities';
             // Fetch filtered activities based on name
-            if (name && name !== "Please select your activity") {
+            if (paramName && paramName !== "Please select your activity") {
                 url = `http://localhost:8080/api/activities/availability?date=${date}&name=${encodeURIComponent(name)}`;
                 const response = await fetch(url);
                 const result = await response.json();
                 setFilteredActivity(result);
                 setFilteredActivities([]); // Clear other results if filtering
                 console.log(result);
-            } else if (name === "Please select your activity" || !name) {
+            } else if (paramName === "Please select your activity" || !paramName) {
                 url = `http://localhost:8080/api/activities/availability/all?date=${date}`;
                 const response = await fetch(url);
                 const result = await response.json();
