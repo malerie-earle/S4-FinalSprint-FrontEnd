@@ -15,10 +15,16 @@
     font-family: Inter;
     color: white;
     height: 80px;
+    width: 100%;
     display: flex;
     align-items: center;
     min-width: 400px;
 }
+
+.room-num {
+    visibility: hidden;
+}
+
 .room-form{
     display: flex;
     background-color: rgba(211, 250, 250, 0.473);
