@@ -6,21 +6,20 @@ import config from '../config';
 const ActivityBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null); // State to hold the user information
-  const [isFetched, setIsFetched] = useState(false); // State to track if user data has been fetched
+  const [user, setUser] = useState(null); 
+  const [isFetched, setIsFetched] = useState(false); 
 
   const location = useLocation();
   const date = location.state?.date;
   const activity = location.state?.activity;
 
-  // Function to fetch current user
   const fetchCurrentUser = async () => {
     try {
       const currentUser = await getCurrentUser();
-      const username = currentUser?.username; // Optional chaining for safety
+      const username = currentUser?.username; 
       if (username) {
         setUser({ username });
-        setIsFetched(true); // Mark as fetched
+        setIsFetched(true); 
       } else {
         setError("User not found. Please log in.");
       }
@@ -29,7 +28,6 @@ const ActivityBookings = () => {
     }
   };
 
-  // Function to fetch booked activities
   const fetchBookedActivities = async () => {
     if (!user || !user.username) {
       setError("User not found. Please log in.");
@@ -58,7 +56,7 @@ const ActivityBookings = () => {
 
       const result = await response.json();
       if (result && result.length > 0) {
-        return result; // Assuming result contains bookings
+        return result; 
       } else {
         throw new Error("No activity bookings found.");
       }
@@ -71,16 +69,16 @@ const ActivityBookings = () => {
   useEffect(() => {
     const loadBookings = async () => {
       if (!isFetched) {
-        await fetchCurrentUser(); // Fetch the current user first
+        await fetchCurrentUser();
       }
       if (user && date && activity) {
-        const data = await fetchBookedActivities(); // Then fetch bookings
+        const data = await fetchBookedActivities(); 
         setBookings(data);
       }
     };
 
     loadBookings();
-  }, [user, date, activity]); // Dependencies include user, date, and activity
+  }, [user, date, activity]); 
 
   return (
     <div>

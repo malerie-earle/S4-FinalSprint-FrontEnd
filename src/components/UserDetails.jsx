@@ -5,15 +5,15 @@ import config from '../config';
 const UserDetails = ({ onFetchUserDetails }) => {
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState(null);
-  const [isFetched, setIsFetched] = useState(false); // Add state to track if data has been fetched
+  const [isFetched, setIsFetched] = useState(false); 
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
-      if (isFetched) return; // Prevent fetching if data is already fetched
+      if (isFetched) return; 
 
       try {
         const currentUser = await getCurrentUser();
-        const username = currentUser?.username; // Optional chaining for safety
+        const username = currentUser?.username; 
         console.log('Current user:', username);
         
         if (username) {
@@ -43,7 +43,7 @@ const UserDetails = ({ onFetchUserDetails }) => {
     };
 
     fetchCurrentUser();
-  }, [onFetchUserDetails, isFetched]); // Add isFetched to dependency array to ensure it only runs once
+  }, [onFetchUserDetails, isFetched]); 
 
   if (error) {
     return <p>{error}</p>;
@@ -53,7 +53,7 @@ const UserDetails = ({ onFetchUserDetails }) => {
     return <p>Loading...</p>;
   }
 
-  return null; // No need to render anything directly
+  return null; 
 };
 
 export default UserDetails;
