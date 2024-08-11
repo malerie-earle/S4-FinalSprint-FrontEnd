@@ -40,6 +40,7 @@ const RoomBookings = ({ user }) => {
     return <p>Loading...</p>;
   }
 
+  /*
   return (
     <div>
       <h3>Room Bookings:</h3>
@@ -63,6 +64,7 @@ const RoomBookings = ({ user }) => {
       {sent && !error && <p style={{ color: 'green' }}>Booking successful!</p>}
     </div>
   );
+  */
 };
 
 export default RoomBookings;

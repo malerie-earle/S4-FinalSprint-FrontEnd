@@ -18,6 +18,11 @@ const ActivityBookings = ({user}) => {
   const activity = location.state?.activity;
   
   console.log(activityBookings);
+  console.log(activityBookings);
+  console.log(activityBookings);
+  console.log(activityBookings);
+  console.log(activityBookings);
+  console.log(activityBookings);
   /*
   return (
     <div>
