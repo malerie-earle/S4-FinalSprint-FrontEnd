@@ -7,13 +7,15 @@ import '../styles/account.css';
 import { Link } from 'react-router-dom';
 
 const Account = ({ signOut, user }) => {
+
+  console.log(user)
   const [userDetails, setUserDetails] = useState(null);
   const [username, setUsername] = useState(null);
-
   const handleFetchUserDetails = (details) => {
     setUsername(details.username);
     setUserDetails(details);
   };
+
 
   return (
     <>
@@ -29,7 +31,7 @@ const Account = ({ signOut, user }) => {
             <div className="accountDetails">
               <div className="div1">
                 <h2>Account Details</h2>
-                <p>Username: {username}</p>
+                <p>Username: {user.username}</p>
                 <p>Name: {userDetails.firstName} {userDetails.lastName}</p> 
                 <p>Email: {userDetails.email}</p>
               </div>
@@ -52,9 +54,9 @@ const Account = ({ signOut, user }) => {
             </div>
           </div>
 
-          <div className="bookingHeader">
+          {/* <div className="bookingHeader">
             <h2 className="bookingH2">Bookings</h2>
-          </div>
+          </div> */}
             
           <div className="bookings">
             <img
@@ -68,7 +70,7 @@ const Account = ({ signOut, user }) => {
             </div>
 
             <div className="activityDiv">
-              <ActivityBookings user={user} />
+              <ActivityBookings user={user}/>
             </div>
           </div>
         </>

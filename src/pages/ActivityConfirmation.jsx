@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import "../styles/activity-confirmation.css"
 import config from '../config';
 
-const ActivityBooking = ({user}) => {
+const ActivityConfirmation = ({user}) => {
 
   let date = useLocation().state.date
   let activity = useLocation().state.activity
@@ -93,4 +93,4 @@ const ActivityBooking = ({user}) => {
 }
   
 
-export default ActivityBooking;
+export default ActivityConfirmation;

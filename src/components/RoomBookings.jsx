@@ -1,44 +1,97 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { getCurrentUser } from '@aws-amplify/auth';
 import config from '../config';
 
-const RoomBookings = ({ user }) => {
+import useFetch from '../hooks/useFetch';
+
+const RoomBookings = ({user, booking}) => {
+  console.log(user);
   const [bookings, setBookings] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [lerror, setError] = useState(null);
+  const [isFetched, setIsFetched] = useState(false); 
 
-  const fetchRoomBookings = async () => {
-    if (user) {
-      try {
-        const response = await fetch(
-          `${config.backendBaseURL}/api/rooms/bookings/username?username=${user.username}`
-        );
+  const {data:roomBookings, loading:roomBookingsLoading, error: roomBookingsError} = useFetch(`${config.backendBaseURL}/api/rooms/bookings/username?username=${user.username}`)
+  console.log(roomBookings)
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch room bookings.");
-        }
+  const location = useLocation();
+  const date = location.state?.date;
+  const room= location.state?.room;
+  
 
-        const result = await response.json();
-        setBookings(result || []);
-      } catch (err) {
-        setError("Error fetching room bookings.");
-        console.error(err);
-      } finally {
-        setLoading(false);
+  return (
+    <div>
+
+      <h1>Room Bookings</h1>
+      {roomBookingsLoading && <p>{roomBookingsLoading}</p>}
+      {roomBookingsError && <p style={{ color: 'red' }}>{roomBookingsError.message}</p>}
+      {!roomBookingsError && !roomBookingsLoading && roomBookings.size==0 && roomBookings != null ? 
+        <p>No room bookings found.</p>
+        :
+        (
+          <div>
+            {roomBookings &&
+              roomBookings.map(booking => (
+                <ul>
+                  <li>{booking.room.room_name}</li>
+                  <p>Check-In: {booking.start_date}</p>
+                  <p>Check-Out: {booking.end_date}</p>
+                </ul>
+              ))
+            }
+          </div>
+        )
       }
-    }
-  };
+    </div>
+  );
 
-  useEffect(() => {
-    if (user) {
-      fetchRoomBookings();
-    } else {
-      setLoading(false); // Handle case where user is not available
-    }
-  }, [user]);
+};
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+export default RoomBookings;
+
+
+
+// import React, { useEffect, useState } from 'react';
+// import config from '../config';
+
+// const RoomBookings = ({ user }) => {
+//   const [bookings, setBookings] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   const fetchRoomBookings = async () => {
+//     if (user) {
+//       try {
+//         const response = await fetch(
+//           `${config.backendBaseURL}/api/rooms/bookings/username?username=${user.username}`
+//         );
+
+//         if (!response.ok) {
+//           throw new Error("Failed to fetch room bookings.");
+//         }
+
+//         const result = await response.json();
+//         setBookings(result || []);
+//       } catch (err) {
+//         setError("Error fetching room bookings.");
+//         console.error(err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     }
+//   };
+
+//   useEffect(() => {
+//     if (user) {
+//       fetchRoomBookings();
+//     } else {
+//       setLoading(false); // Handle case where user is not available
+//     }
+//   }, [user]);
+
+//   if (loading) {
+//     return <p>Loading...</p>;
+//   }
 
   /*
   return (
@@ -65,6 +118,6 @@ const RoomBookings = ({ user }) => {
     </div>
   );
   */
-};
+// };
 
-export default RoomBookings;
+// export default RoomBookings;
