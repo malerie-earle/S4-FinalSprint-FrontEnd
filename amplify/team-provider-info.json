@@ -1,24 +1,38 @@
 {
-  "dev": {
+  "amplifyenv": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-islandserenity-dev-5c507-authRole",
-      "UnauthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-dev-5c507-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-dev-5c507-authRole",
-      "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-islandserenity-dev-5c507-deployment",
-      "UnauthRoleName": "amplify-islandserenity-dev-5c507-unauthRole",
-      "StackName": "amplify-islandserenity-dev-5c507",
-      "StackId": "arn:aws:cloudformation:us-east-2:010928192143:stack/amplify-islandserenity-dev-5c507/cd437690-5506-11ef-be1b-06a09c17cb47",
-      "AmplifyAppId": "d7c94piiceifa"
+      "AuthRoleName": "amplify-islandserenity-amplifyenv-c4562-authRole",
+      "UnauthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-amplifyenv-c4562-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-amplifyenv-c4562-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-islandserenity-amplifyenv-c4562-deployment",
+      "UnauthRoleName": "amplify-islandserenity-amplifyenv-c4562-unauthRole",
+      "StackName": "amplify-islandserenity-amplifyenv-c4562",
+      "StackId": "arn:aws:cloudformation:us-east-1:010928192143:stack/amplify-islandserenity-amplifyenv-c4562/88527430-5814-11ef-b822-12f8ee5f6677",
+      "AmplifyAppId": "d2h0cs4zactka9"
     },
     "categories": {
       "auth": {
-        "islandserenity9abe4b90": {
-          "userPoolId": "us-east-2_GKk2TyV2x",
-          "userPoolName": "UserAccount",
-          "webClientId": "3ff4a8c3otuu5gr65u3kmlte35",
-          "nativeClientId": "3ff4a8c3otuu5gr65u3kmlte35"
+        "islandserenityc97d38ba": {
+          "userPoolId": "us-east-1_0HDw4DOj9",
+          "userPoolName": "amplify_backend_manager_d2h0cs4zactka9",
+          "webClientId": "6u9q6fgo3vlu2r23ofi5513ejc",
+          "nativeClientId": "6u9q6fgo3vlu2r23ofi5513ejc"
+        },
+        "islandserenity5e210a1c": {}
+      },
+      "function": {
+        "islandserenityb7694cdb": {
+          "deploymentBucketName": "amplify-islandserenity-amplifyenv-c4562-deployment",
+          "s3Key": "amplify-builds/islandserenityb7694cdb-764e704a4f34332b5174-build.zip"
         }
+      },
+      "api": {
+        "apic663b6d9": {},
+        "apibc3cf41b": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }
