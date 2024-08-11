@@ -11,6 +11,7 @@ import ActivityBooking from './pages/ActivityBooking';
 import Account from './pages/Account';
 import Nav from './components/Nav';
 import useFetch from './hooks/useFetch';
+import config from './config';
 
   // Custom hook for fetching data
   function useFetchData(url) {
@@ -57,8 +58,8 @@ function getToday() {
 }
 
 function App() {
-  const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData('http://localhost:8080/api/activities');
-  const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData('http://localhost:8080/api/rooms');
+  const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData(config.backendBaseURL+'/api/activities');
+  const { data: allRoomData, loading: allRoomLoading, error: allRoomError } = useFetchData(config.backendBaseURL+'/api/rooms');
 
   console.log(allRoomData)
 

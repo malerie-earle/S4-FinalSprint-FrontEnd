@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import config from '../config';
 
 const RoomBookings = ({ user }) => {
   const [bookings, setBookings] = useState([]);
@@ -13,7 +14,7 @@ const RoomBookings = ({ user }) => {
 
   const fetchRoomBookings = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/rooms/book", {
+      const response = await fetch(config.backendBaseURL+"/api/rooms/book", {
         method: 'POST',
         body: JSON.stringify({
           username: user.username,

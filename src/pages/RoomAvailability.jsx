@@ -4,6 +4,7 @@ import RoomDetails from "../components/RoomDetails";
 import RoomSearchBar from "../components/RoomSearchBar"
 import { useParams } from "react-router-dom";
 import { useState, useEffect} from "react";
+import config from '../config';
 
 const RoomAvailability = ({
     allRoomData,
@@ -36,12 +37,12 @@ const RoomAvailability = ({
               const occupancy = paramOccupancy || guests;
               const roomType = paramType || type;
           
-              let url = 'http://localhost:8080/api/rooms';
+              let url = `${config.backendBaseURL}/api/rooms`;
           
               if (paramCheckIn && paramCheckOut && paramOccupancy && !paramType || paramType === "Select your preferred accommodation") {
-                url = `http://localhost:8080/api/rooms/availability/occupancy?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}`;
+                url = `${config.backendBaseURL}/api/rooms/availability/occupancy?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}`;
               } else if (paramCheckIn && paramCheckOut && paramOccupancy && paramType && paramType !== "Select your preferred accommodation") {
-                url = `http://localhost:8080/api/rooms/availability/occupancy/type?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}&roomType=${roomType}`;
+                url = `${config.backendBaseURL}/api/rooms/availability/occupancy/type?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}&roomType=${roomType}`;
               }
           
               const response = await fetch(url);
