@@ -45,6 +45,8 @@ const RoomAvailability = ({
                 url = `${config.backendBaseURL}/api/rooms/availability/occupancy/type?startDate=${checkIn}&endDate=${checkOut}&requestedOccupancy=${occupancy}&roomType=${roomType}`;
               }
           
+              
+
               const response = await fetch(url);
               const result = await response.json();
               console.log('Fetch result:', result); // Log the result for debugging
