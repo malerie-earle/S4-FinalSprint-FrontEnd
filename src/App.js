@@ -5,12 +5,14 @@ import '@aws-amplify/ui-react/styles.css';
 import Home from './pages/Home';
 import RoomAvailability from './pages/RoomAvailability';
 import ActivityAvailability from './pages/ActivityAvailability';
-import ActivityBooking from './pages/ActivityBooking';
+import ActivityConfirmation from './pages/ActivityConfirmation';
+import RoomConfirmation from './pages/RoomConfirmation';
 import Account from './pages/Account';
 import Nav from './components/Nav';
+import Footer from './components/Footer'
 
 import config from './config';
-import RoomBooking from './pages/RoomBooking';
+
 
 function App() {
   const { data: allActivityData, loading: allActivityLoading, error: allActivityError } = useFetchData(`${config.backendBaseURL}/api/activities`);
@@ -96,8 +98,6 @@ function App() {
               allRoomData={allRoomData}
               allRoomLoading={allRoomLoading}
               allRoomError={allRoomError}
-              type = {type}
-              setType = {setType}
             />
           }
         />
@@ -168,20 +168,20 @@ function App() {
           }
         />
 
-      <Route
-        path={`/activity-availability/:activityDate/:activityName`}
-        element={
-          <ActivityAvailability
-            activityDate={activityDate}
-            setActivityDate={setActivityDate}
-            activityName={activityName}
-            setActivityName={setActivityName}
-            allActivityData={allActivityData}
-            allActivityLoading={allActivityLoading}
-            allActivityError={allActivityError}
-          />
-        }
-      />
+        <Route
+          path={`/activity-availability/:activityDate/:activityName`}
+          element={
+            <ActivityAvailability
+              activityDate={activityDate}
+              setActivityDate={setActivityDate}
+              activityName={activityName}
+              setActivityName={setActivityName}
+              allActivityData={allActivityData}
+              allActivityLoading={allActivityLoading}
+              allActivityError={allActivityError}
+            />
+          }
+        />
 
         {/* Protected routes */}
         <Route
@@ -191,7 +191,7 @@ function App() {
               loginMechanisms={['username']}
               onStateChange={handleAuthStateChange}
             >
-              {({ signOut, user: authUser }) => authUser ? <RoomBooking user={authUser} /> : <Navigate to="/" />}
+              {({ signOut, user: authUser }) => authUser ? <RoomConfirmation user={authUser} /> : <Navigate to="/" />}
             </Authenticator>
           }
         />
@@ -202,7 +202,7 @@ function App() {
               loginMechanisms={['username']}
               onStateChange={handleAuthStateChange}
             >
-              {({ signOut, user: authUser }) => authUser ? <ActivityBooking user={authUser} /> : <Navigate to="/" />}
+              {({ signOut, user: authUser }) => authUser ? <ActivityConfirmation user={authUser} /> : <Navigate to="/" />}
             </Authenticator>
           }
         />
@@ -218,6 +218,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer/>
     </>
   );
 }
