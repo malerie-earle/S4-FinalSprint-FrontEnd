@@ -20,6 +20,12 @@
     margin-top: 16px;
     height: 135px;
 }
+
+.address p{
+    text-align: left;
+    width: 100%;
+    font-family: 'roboto', sans-serif;
+}
 #logo{
     width: 200px;
     margin-top: 16px;
@@ -50,7 +56,7 @@
     margin-left: auto;
     margin-right: 0px;
     padding-top: 30px;
-    font-size: 12.5pt;
+    font-size: 12pt;
     font-family: 'Roboto', sans-serif;
     
 }
