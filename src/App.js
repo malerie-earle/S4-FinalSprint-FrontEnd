@@ -90,6 +90,26 @@ function App() {
               allRoomData={allRoomData}
               allRoomLoading={allRoomLoading}
               allRoomError={allRoomError}
+              type = {type}
+              setType = {setType}
+            />
+          }
+        />
+        <Route
+          path={`/room-availability/:checkInDate/:checkOutDate/:requestedOccupancy/:roomType`}
+          element={
+            <RoomAvailability
+              checkInDate={checkInDate}
+              setCheckInDate={setCheckInDate}
+              checkOutDate={checkOutDate}
+              setCheckOutDate={setCheckOutDate}
+              guests={guests}
+              setGuests={setGuests}
+              type={type}
+              setType={setType}
+              allRoomData={allRoomData}
+              allRoomLoading={allRoomLoading}
+              allRoomError={allRoomError}
             />
           }
         />
