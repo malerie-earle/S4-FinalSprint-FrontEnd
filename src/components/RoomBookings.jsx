@@ -60,6 +60,7 @@ const RoomBookings = ({ user }) => {
           ))}
         </div>
       )}
+      {sent && !error && <p style={{ color: 'green' }}>Booking successful!</p>}
     </div>
   );
 };

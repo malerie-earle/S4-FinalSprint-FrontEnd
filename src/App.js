@@ -8,6 +8,7 @@ import ActivityAvailability from './pages/ActivityAvailability';
 import ActivityBooking from './pages/ActivityBooking';
 import Account from './pages/Account';
 import Nav from './components/Nav';
+
 import config from './config';
 import RoomBooking from './pages/RoomBooking';
 
@@ -26,6 +27,7 @@ function App() {
   useEffect(() => {
     // Any side effects related to user state can be managed here
   }, [user]);
+
 
   function useFetchData(url) {
     const [data, setData] = useState([]);
@@ -54,6 +56,7 @@ function App() {
       fetchData();
     }, [url]);
 
+
     return { data, loading, error };
   }
 
@@ -77,6 +80,7 @@ function App() {
       <Routes>
         {/* Public routes accessible without authentication */}
         <Route path="/" element={<Home />} />
+        
         <Route
           path="/room-availability"
           element={
@@ -87,12 +91,54 @@ function App() {
               setCheckOutDate={setCheckOutDate}
               guests={guests}
               setGuests={setGuests}
+              type={type}
+              setType={setType}
+              allRoomData={allRoomData}
+              allRoomLoading={allRoomLoading}
+              allRoomError={allRoomError}
+              type = {type}
+              setType = {setType}
+            />
+          }
+        />
+        <Route
+          path={`/room-availability/:checkInDate/:checkOutDate/:requestedOccupancy/:roomType`}
+          element={
+            <RoomAvailability
+              checkInDate={checkInDate}
+              setCheckInDate={setCheckInDate}
+              checkOutDate={checkOutDate}
+              setCheckOutDate={setCheckOutDate}
+              guests={guests}
+              setGuests={setGuests}
+              type={type}
+              setType={setType}
               allRoomData={allRoomData}
               allRoomLoading={allRoomLoading}
               allRoomError={allRoomError}
             />
           }
         />
+
+        <Route
+          path={`/room-availability/:checkInDate/:checkOutDate/:requestedOccupancy/:roomType`}
+          element={
+            <RoomAvailability
+              checkInDate={checkInDate}
+              setCheckInDate={setCheckInDate}
+              checkOutDate={checkOutDate}
+              setCheckOutDate={setCheckOutDate}
+              guests={guests}
+              setGuests={setGuests}
+              type={type}
+              setType={setType}
+              allRoomData={allRoomData}
+              allRoomLoading={allRoomLoading}
+              allRoomError={allRoomError}
+            />
+          }
+        />
+
         <Route
           path="/activity-availability"
           element={
@@ -121,6 +167,21 @@ function App() {
             />
           }
         />
+
+      <Route
+        path={`/activity-availability/:activityDate/:activityName`}
+        element={
+          <ActivityAvailability
+            activityDate={activityDate}
+            setActivityDate={setActivityDate}
+            activityName={activityName}
+            setActivityName={setActivityName}
+            allActivityData={allActivityData}
+            allActivityLoading={allActivityLoading}
+            allActivityError={allActivityError}
+          />
+        }
+      />
 
         {/* Protected routes */}
         <Route

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import UserDetails from '../components/UserDetails';
 import RoomBookings from '../components/RoomBookings';
@@ -67,7 +68,7 @@ const Account = ({ signOut, user }) => {
             </div>
 
             <div className="activityDiv">
-              <ActivityBookings />
+              <ActivityBookings user={user} />
             </div>
           </div>
         </>

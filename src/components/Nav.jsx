@@ -32,7 +32,7 @@ const Nav = ({ isAuthenticated, signOut }) => {
                             style={{ cursor: 'pointer' }}
                         >
                             Sign Out
-                            <img src={logout} alt="logout" className="logout" />
+                            <img onClick={signOut} src={logout} alt="logout" className="logout" />
                         </span>
                     {/* // ) : (
                     //     <Link to="/account" className="navLinks3" id="signInLink">
