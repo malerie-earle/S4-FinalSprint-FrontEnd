@@ -1,58 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import config from '../config';
 
 const RoomBookings = ({ user }) => {
   const [bookings, setBookings] = useState([]);
-  const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
-
-  const location = useLocation();
-  const start = location.state?.start;
-  const end = location.state?.end;
-  const room = location.state?.room;
+  const [loading, setLoading] = useState(true);
 
   const fetchRoomBookings = async () => {
-    try {
-      const response = await fetch(config.backendBaseURL+"/api/rooms/book", {
-        method: 'POST',
-        body: JSON.stringify({
-          username: user.username,
-          room_id: room.room_id,
-          start: start,
-          end: end,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
+    if (user) {
+      try {
+        const response = await fetch(
+          `${config.backendBaseURL}/api/rooms/bookings/username?username=${user.username}`
+        );
 
-      if (!response.ok) {
-        throw new Error("No current bookings found.");
-      }
+        if (!response.ok) {
+          throw new Error("Failed to fetch room bookings.");
+        }
 
-      const result = await response.json();
-      if (result) {
-        setSent(true);
-        return result;  // Assuming result contains bookings
-      } else {
-        setError("No room bookings found.");
-        return [];
+        const result = await response.json();
+        setBookings(result || []);
+      } catch (err) {
+        setError("Error fetching room bookings.");
+        console.error(err);
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      setError("No room bookings found.");
-      return [];
     }
   };
 
   useEffect(() => {
-    const loadBookings = async () => {
-      const data = await fetchRoomBookings();
-      setBookings(data);
-    };
+    if (user) {
+      fetchRoomBookings();
+    } else {
+      setLoading(false); // Handle case where user is not available
+    }
+  }, [user]);
 
-    loadBookings();
-  }, []);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>
@@ -62,20 +48,18 @@ const RoomBookings = ({ user }) => {
         <p>No room bookings found.</p>
       ) : (
         <div>
-          {bookings.map(booking => (
-            <div key={booking.id} className="bookingItem">
+          {bookings.map((booking) => (
+            <div key={booking.room_booking_id || booking.room_number} className="bookingItem">
               <p><strong>Rm #:</strong> {booking.room_number}</p>
               <h4 className="roomName">{booking.roomName}</h4>
               <p className="bookingDetails">
-                <strong>Date:</strong> {booking.date} <br />
-                <strong>Time:</strong> {booking.time}
+                <strong>Date:</strong> {booking.startDate} to {booking.endDate}
               </p>
               <br />
             </div>
           ))}
         </div>
       )}
-      {sent && !error && <p style={{ color: 'green' }}>Booking successful!</p>}
     </div>
   );
 };

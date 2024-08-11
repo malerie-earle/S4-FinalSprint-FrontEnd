@@ -5,6 +5,7 @@ import logo from "../images/logo.png";
 import "../styles/nav.css";
 import logout from "../images/logout.png";
 import person from "../images/person2.png";
+import { signOut } from "@aws-amplify/auth";
 
 const Nav = ({ isAuthenticated, signOut }) => {
     return (
@@ -24,21 +25,21 @@ const Nav = ({ isAuthenticated, signOut }) => {
 
             <div className="box2">
                 <div className="phoneAndBook">
-                    {isAuthenticated ? (
+                    {/* {isAuthenticated ? ( */}
                         <span
                             className="navLinks3"
                             onClick={signOut}
                             style={{ cursor: 'pointer' }}
                         >
                             Sign Out
-                            <img onClick={signOut} src={logout} alt="logout" className="logout" />
+                            <img src={logout} alt="logout" className="logout" />
                         </span>
-                    ) : (
-                        <Link to="/account" className="navLinks3" id="signInLink">
-                            Sign In/Sign Up
-                            <img src={person} alt="user" className="user" />
-                        </Link>
-                    )}
+                    {/* // ) : (
+                    //     <Link to="/account" className="navLinks3" id="signInLink">
+                    //         Sign In/Sign Up
+                    //         <img src={person} alt="user" className="user" />
+                    //     </Link>
+                    // )} */}
 
                     <Link to="/room-availability" id="bookYourStay">
                         Book your stay <img src={ForwardArrow} alt="Forward Arrow" className="forwardArrow" />
@@ -46,7 +47,7 @@ const Nav = ({ isAuthenticated, signOut }) => {
                 </div>
                 <div className="nav2">
                     <Link to="/activity-availability" className="navLinks2" id="activities">ACTIVITIES</Link>
-                    <Link to="/account" className="navLinks2" id="account">ACCOUNT</Link>
+                    <Link to="/account" className="navLinks2" id="dining">ACCOUNT</Link>
                 </div>
             </div>
         </div>
