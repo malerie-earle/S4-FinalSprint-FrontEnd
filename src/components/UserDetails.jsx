@@ -56,6 +56,7 @@ const UserDetails = ({ onFetchUserDetails }) => {
   return null; // No need to render anything directly
 };
 
+<<<<<<< HEAD
 export default UserDetails;
 
 
@@ -132,3 +133,6 @@ export default UserDetails;
 // };
 
 // export default UserDetails;
+=======
+export default UserDetails;
+>>>>>>> 4824eb0218c5dad33072929a29c20621c832377e

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "islandserenityb7694cdb",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

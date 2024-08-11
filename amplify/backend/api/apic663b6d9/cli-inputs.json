@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/api": {
+      "name": "/api",
+      "lambdaFunction": "islandserenityb7694cdb",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

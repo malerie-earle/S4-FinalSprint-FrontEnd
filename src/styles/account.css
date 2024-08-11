@@ -14,7 +14,8 @@
     height: 50vh;
     width: 95%;
     flex-direction:column;
-    background-color: rgba(42, 123, 119, 0.327);
+    background-color: rgba(211, 250, 250, 0.473);;
+    /* background-color: rgba(42, 123, 119, 0.327); */
     margin-left: auto;
     margin-right: auto;
     border: 2px solid rgb(42, 123, 119);
@@ -61,7 +62,8 @@
     align-items: center;
     height: 3vh;
     width: 95%;
-    background-color: rgba(42, 123, 119, 0.327);
+    background-color: rgba(211, 250, 250, 0.473);;
+    /* background-color: rgba(42, 123, 119, 0.327); */
     border: 2px solid rgb(42, 123, 119);
     border-bottom: none;
     margin-left: auto;
@@ -80,7 +82,7 @@
     padding-bottom: 0;
     margin-right: auto;
     margin-left: auto;
-    background-color:rgb(238, 103, 108);
+    background-color:rgba(255, 138, 152);
     border: 2px solid 
 }
 
@@ -115,7 +117,7 @@
 }
 
 .links1:hover {
-    color: rgb(238, 103, 108);
+    color: rgba(255, 138, 152);
     cursor: pointer;
     font-weight: 900;
 }
@@ -157,21 +159,23 @@
     align-items: top;
     width: 95%;
     height: min-content;
-    background-color: rgba(238, 103, 108, 0.589);
+    background-color: rgba(255, 138, 152);
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid rgb(238, 103, 108);
+    border: 2px solid rgba(255, 138, 152);
     border-top: none;
+
 }
 
 .bookingHeader {
     display: grid;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     width: 95%;
     height: 12vh;
     margin-right: auto;
     margin-left: auto;
-    background-color: rgba(238, 103, 108, 0.589);
+    /* background-color: rgba(238, 138, 152, 0.589); */
+    background-color: aqua;
     border: 2px solid rgb(238, 103, 108);
     border-bottom: none;
     align-items: top;
@@ -184,6 +188,9 @@
     text-align: left;
     margin-left: auto;
     margin-right: 15vw;
+    font-family: 'Roboto', sans-serif;
+    background-color: blue;
+
 }
 
 .poolImg {

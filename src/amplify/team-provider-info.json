@@ -1,0 +1,33 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-islandserenity-dev-3a390-authRole",
+      "UnauthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-dev-3a390-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-dev-3a390-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-islandserenity-dev-3a390-deployment",
+      "UnauthRoleName": "amplify-islandserenity-dev-3a390-unauthRole",
+      "StackName": "amplify-islandserenity-dev-3a390",
+      "StackId": "arn:aws:cloudformation:us-east-1:010928192143:stack/amplify-islandserenity-dev-3a390/9e4fa4d0-5812-11ef-9563-126078212f05",
+      "AmplifyAppId": "d15q0ct0pytuvh"
+    }
+  },
+  "amplifyenv": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-islandserenity-amplifyenv-9a58a-authRole",
+      "UnauthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-amplifyenv-9a58a-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::010928192143:role/amplify-islandserenity-amplifyenv-9a58a-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-islandserenity-amplifyenv-9a58a-deployment",
+      "UnauthRoleName": "amplify-islandserenity-amplifyenv-9a58a-unauthRole",
+      "StackName": "amplify-islandserenity-amplifyenv-9a58a",
+      "StackId": "arn:aws:cloudformation:us-east-1:010928192143:stack/amplify-islandserenity-amplifyenv-9a58a/07157920-5815-11ef-b826-0affcfc309cf",
+      "AmplifyAppId": "d2kcu6wg72a6n2"
+    },
+    "categories": {
+      "function": {
+        "islandserenitye3a03ffa": {}
+      }
+    }
+  }
+}

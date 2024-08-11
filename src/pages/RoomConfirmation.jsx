@@ -5,7 +5,7 @@ import config from '../config';
 import { Link } from 'react-router-dom';
 import "../styles/room-confirmation.css"
 
-const RoomBooking = ({user}) => {
+const RoomConfirmation = ({user}) => {
 
   let start = useLocation().state.end
   let end = useLocation().state.start
@@ -14,6 +14,7 @@ const RoomBooking = ({user}) => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
 
+  console.log(user);
   
   const bookRoom = async () => {
     try{
@@ -96,4 +97,4 @@ const RoomBooking = ({user}) => {
 }
   
 
-export default RoomBooking;
+export default RoomConfirmation;

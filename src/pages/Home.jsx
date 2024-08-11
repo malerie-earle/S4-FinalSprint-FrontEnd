@@ -10,7 +10,8 @@ const Home = () => {
       <div className="overlay">
         <p>I S L A N D&nbsp;&nbsp;&nbsp;S E R E N I T Y</p>
         <div className="button-container">
-          <button>B O O K&nbsp;&nbsp;&nbsp;N O W</button>
+        <a href="/room-availability">
+        <button>B O O K&nbsp;&nbsp;&nbsp;N O W</button></a>
           <p className="additional-text">Your greatest escape awaits.</p>
         </div>
       </div>
@@ -139,7 +140,6 @@ const Home = () => {
 
       </div>
        </div>
-      <Footer />
     </div>
   );
 };

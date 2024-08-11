@@ -1,10 +1,10 @@
 .roomBookingDetails{
-    height: fit-content;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     flex-wrap: nowrap;
     /* width: 400px; */
+    /* background-color: aqua; */
 }
 .room-name{
     background-color: rgba(42, 123, 119);
