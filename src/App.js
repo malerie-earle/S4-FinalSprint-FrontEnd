@@ -96,8 +96,6 @@ function App() {
               allRoomData={allRoomData}
               allRoomLoading={allRoomLoading}
               allRoomError={allRoomError}
-              type = {type}
-              setType = {setType}
             />
           }
         />
