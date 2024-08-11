@@ -1,43 +1,121 @@
 {
+  "api": {
+    "apibc3cf41b": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "islandserenityb7694cdb"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "apic663b6d9": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "islandserenityb7694cdb"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
-    "islandserenity9abe4b90": {
+    "islandserenity5e210a1c": {
       "customAuth": false,
       "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "FAMILY_NAME",
+          "GIVEN_NAME"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito",
-      "serviceType": "imported"
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "islandserenityb7694cdb": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
     }
   },
   "parameters": {
-    "AMPLIFY_auth_islandserenity9abe4b90_nativeClientId": {
+    "AMPLIFY_auth_islandserenityc97d38ba_nativeClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "islandserenity9abe4b90"
+          "resourceName": "islandserenityc97d38ba"
         }
       ]
     },
-    "AMPLIFY_auth_islandserenity9abe4b90_userPoolId": {
+    "AMPLIFY_auth_islandserenityc97d38ba_userPoolId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "islandserenity9abe4b90"
+          "resourceName": "islandserenityc97d38ba"
         }
       ]
     },
-    "AMPLIFY_auth_islandserenity9abe4b90_userPoolName": {
+    "AMPLIFY_auth_islandserenityc97d38ba_userPoolName": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "islandserenity9abe4b90"
+          "resourceName": "islandserenityc97d38ba"
         }
       ]
     },
-    "AMPLIFY_auth_islandserenity9abe4b90_webClientId": {
+    "AMPLIFY_auth_islandserenityc97d38ba_webClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "islandserenity9abe4b90"
+          "resourceName": "islandserenityc97d38ba"
+        }
+      ]
+    },
+    "AMPLIFY_function_islandserenityb7694cdb_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "islandserenityb7694cdb"
+        }
+      ]
+    },
+    "AMPLIFY_function_islandserenityb7694cdb_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "islandserenityb7694cdb"
         }
       ]
     }
