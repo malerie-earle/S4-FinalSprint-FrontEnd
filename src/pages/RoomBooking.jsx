@@ -14,6 +14,7 @@ const RoomBooking = ({user}) => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
 
+  console.log(user);
   
   const bookRoom = async () => {
     try{
