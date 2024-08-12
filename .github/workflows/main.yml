@@ -1,0 +1,33 @@
+name: React CI/CD
+
+on:
+  push:
+    branches: [ "master" ]  # Runs on every push to the main branch
+  pull_request:
+    branches: [ "master" ]  # Runs on every pull request to the main branch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4  # Checks out the code from your repository
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # Specify the Node.js version you're using
+        cache: 'npm'  # Caches npm dependencies
+
+    - name: Install dependencies
+      run: npm install  # Installs all dependencies from package.json
+
+    - name: Build project
+      run: npm run build  # Builds the React project
+
+    - name: Run tests
+      run: npm test  # Runs your tests
+
+   
