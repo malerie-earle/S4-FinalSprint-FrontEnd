@@ -1,4 +1,4 @@
-import ActivityAvailability from "../pages/ActivityAvailability";
+
 import { Link } from "react-router-dom";
 import "../styles/activity-details.css"
 

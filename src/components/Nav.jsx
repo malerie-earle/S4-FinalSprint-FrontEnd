@@ -4,8 +4,7 @@ import ForwardArrow from "../images/arrow_forward.png";
 import logo from "../images/logo.png";
 import "../styles/nav.css";
 import logout from "../images/logout.png";
-import person from "../images/person2.png";
-import { signOut } from "@aws-amplify/auth";
+
 
 const Nav = ({ isAuthenticated, signOut }) => {
     return (
